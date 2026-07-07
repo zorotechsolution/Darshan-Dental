@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Treatments in Kanyakumari | Implants, Braces, Root Canal — Darshan Dental</title>
+<meta name="description" content="Explore dental treatments at Darshan Dental, the best dental clinic in Kanyakumari: orthodontic braces, Invisalign, root canal treatment, dental implants, veneers, dentures & pediatric dentistry.">
+<meta name="keywords" content="Dental Implants Kanyakumari, Root Canal Treatment Kanyakumari, Teeth Braces Treatment Kanyakumari, Invisalign Provider Kanyakumari, Dental Veneers Kanyakumari, Complete Dentures Kanyakumari, Pediatric Dentist Kanyakumari, Tooth Extraction Nagercoil, Dental Implant Clinic Kanyakumari">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Treatments Catalog Specific Styles ────────────────────────── */
+
+  /* Tab Filter Buttons */
+  .treatment-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .btn-filter {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .88rem;
+    color: var(--text-light);
+    background: #fff;
+    border: 1.5px solid var(--border);
+    padding: 10px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all .28s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 2px 10px rgba(17,24,39,.03);
+  }
+  .btn-filter:hover {
+    color: var(--green);
+    border-color: var(--green);
+    background: var(--green-light);
+    transform: translateY(-2px);
+  }
+  .btn-filter.active {
+    color: #fff;
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 6px 20px rgba(26,122,76,.26);
+  }
+
+  /* Catalog Cards */
+  .treatment-card-col {
+    transition: transform .4s ease, opacity .4s ease;
+  }
+  .treatment-card {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(17,24,39,.04);
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+  }
+  .treatment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(26,122,76,.25);
+  }
+
+  /* Image Block */
+  .tx-image-wrap {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+  .tx-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .treatment-card:hover .tx-image-wrap img {
+    transform: scale(1.06);
+  }
+
+  /* Category Tag Badge */
+  .tx-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 100px;
+    box-shadow: 0 4px 14px rgba(17,24,39,.08);
+    z-index: 5;
+    border: 1px solid rgba(26,122,76,.15);
+  }
+
+  /* Card Content Block */
+  .tx-body {
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .tx-body h4 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .tx-body p {
+    font-size: .88rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  /* Feature List Bullets */
+  .tx-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tx-bullets li {
+    font-size: .84rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .tx-bullets li span {
+    color: var(--green);
+    font-weight: 700;
+    font-size: .9rem;
+    line-height: 1;
+  }
+
+  /* Card CTA Button */
+  .tx-btn {
+    margin-top: auto;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .82rem;
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all .24s ease;
+  }
+  .treatment-card:hover .tx-btn {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26,122,76,.3);
+  }
+  .tx-btn svg {
+    stroke: currentColor;
+    transition: transform .2s ease;
+  }
+  .tx-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ── Auto-cycle pulse highlight ───────────────────────── */
+  @keyframes txPulseGlow {
+    0%   { box-shadow: 0 0 0 0 rgba(26,122,76,.35), var(--shadow-lg); }
+    50%  { box-shadow: 0 0 0 8px rgba(26,122,76,.0), 0 20px 50px rgba(26,122,76,.22); }
+    100% { box-shadow: 0 0 0 0 rgba(26,122,76,.0), var(--shadow-lg); }
+  }
+  .treatment-card.tx-pulse-active {
+    transform: translateY(-10px);
+    border-color: rgba(26,122,76,.45);
+    box-shadow: 0 20px 50px rgba(26,122,76,.2);
+    animation: txPulseGlow 3s ease forwards;
+    transition: transform .4s cubic-bezier(.22,1,.36,1),
+                border-color .3s ease,
+                box-shadow .3s ease;
+  }
+  .treatment-card.tx-pulse-active .tx-btn {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26,122,76,.3);
+  }
+  .treatment-card.tx-pulse-active .tx-image-wrap img {
+    transform: scale(1.05);
+  }
+
+  /* ── Responsive breakpoints ────────────────────────────── */
+  @media(max-width:991px) {
+    .btn-filter { font-size: .8rem; padding: 8px 18px; }
+    .tx-image-wrap { height: 210px; }
+    .tx-body { padding: 24px 20px; }
+  }
+  @media(max-width:575px) {
+    .treatment-filters { gap: 8px; }
+    .btn-filter { font-size: .76rem; padding: 6px 14px; }
+    .tx-image-wrap { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>Treatments</div>
+    <h1>Our Dental Treatments</h1>
+  </div>
+</div>
+
+
+
+<!-- ============================================================
+     TREATMENTS GRID WITH FILTER TABS
+     ============================================================ -->
+<section class="section pt-5">
+  <div class="container">
+
+    <!-- Category Tabs -->
+    <div class="treatment-filters mb-5 reveal">
+      <button class="btn-filter active" data-filter="all">All Treatments</button>
+      <button class="btn-filter" data-filter="ortho">Orthodontics</button>
+      <button class="btn-filter" data-filter="restorative">Restorative Care</button>
+      <button class="btn-filter" data-filter="replacement">Tooth Replacement</button>
+      <button class="btn-filter" data-filter="preventive">Preventive &amp; Kids</button>
+    </div>
+
+    <!-- Cards Catalog Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="treatmentsGrid">
+
+      <!-- 1: Orthodontic Braces -->
+      <div class="col treatment-card-col" data-category="ortho">
+        <div class="treatment-card reveal">
+          <span class="tx-badge">Orthodontics</span>
+          <div class="tx-image-wrap">
+            <img src="images/Orthodontic%20Braces.png" alt="Teeth clip treatment braces Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Orthodontic Braces (Clip)</h4>
+            <p>Correct crooked teeth, crowding, over-bites, and under-bites to achieve complete teeth alignment and restore comfort.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Certified orthodontic expertise</li>
+              <li><span>✓</span> Aesthetic tooth-coloured clips</li>
+              <li><span>✓</span> Lingual (hidden behind teeth) braces</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Invisalign -->
+      <div class="col treatment-card-col" data-category="ortho">
+        <div class="treatment-card reveal" style="--delay:.08s">
+          <span class="tx-badge">Orthodontics</span>
+          <div class="tx-image-wrap">
+            <img src="images/Invisalign.png" alt="Invisalign clear aligners provider in Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Invisalign® Clear Aligners</h4>
+            <p>Darshan Dental is the pioneer Invisalign provider in Kanyakumari. Straighten your smile discreetly and comfortably.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Virtually invisible, metal-free aligners</li>
+              <li><span>✓</span> Removable for easy eating &amp; cleaning</li>
+              <li><span>✓</span> Advanced digital 3D CBCT planning</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Tooth Filling -->
+      <div class="col treatment-card-col" data-category="restorative">
+        <div class="treatment-card reveal" style="--delay:.16s">
+          <span class="tx-badge">Restorative</span>
+          <div class="tx-image-wrap">
+            <img src="images/Tooth%20Filling.png" alt="Cosmetic tooth cavity filling Nagercoil">
+          </div>
+          <div class="tx-body">
+            <h4>Tooth Filling</h4>
+            <p>Fill cavity decay spots and restore the natural strength and cosmetic polish of your teeth with absolute comfort.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Durable resin composite materials</li>
+              <li><span>✓</span> Precision shades matching your enamel</li>
+              <li><span>✓</span> Long-lasting structural protection</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Root Canal -->
+      <div class="col treatment-card-col" data-category="restorative">
+        <div class="treatment-card reveal">
+          <span class="tx-badge">Restorative</span>
+          <div class="tx-image-wrap">
+            <img src="images/Root%20Canal%20Treatment.png" alt="Root canal treatment cost Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Root Canal Treatment</h4>
+            <p>Save heavily decayed or infected teeth. Painless cleaning and sealing of the root canals restores normal tooth use.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Preserves natural dental root structure</li>
+              <li><span>✓</span> High-tech localized anesthesia</li>
+              <li><span>✓</span> Highly competitive local cost rates</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Dental Bridges -->
+      <div class="col treatment-card-col" data-category="replacement">
+        <div class="treatment-card reveal" style="--delay:.08s">
+          <span class="tx-badge">Tooth Replacement</span>
+          <div class="tx-image-wrap">
+            <img src="images/Dental%20Bridges.png" alt="Fixed dental bridges for missing tooth replacement">
+          </div>
+          <div class="tx-body">
+            <h4>Dental Bridges</h4>
+            <p>Bridge the gaps caused by missing teeth using custom porcelain or gold crowns anchored safely to neighboring teeth.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Solid fixed anchor support profile</li>
+              <li><span>✓</span> Restores natural chewing mechanics</li>
+              <li><span>✓</span> Smooth cosmetic integration</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Complete Dentures -->
+      <div class="col treatment-card-col" data-category="replacement">
+        <div class="treatment-card reveal" style="--delay:.16s">
+          <span class="tx-badge">Tooth Replacement</span>
+          <div class="tx-image-wrap">
+            <img src="images/Complete%20Dentures.png" alt="Comfortable complete dentures Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Complete Dentures</h4>
+            <p>Replace full arches of missing teeth with modern, customized removable dentures designed for absolute comfort.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Tailored fit to avoid gum friction</li>
+              <li><span>✓</span> Restores facial contour profiles</li>
+              <li><span>✓</span> Implant-supported lock-in options</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: Dental Implant -->
+      <div class="col treatment-card-col" data-category="replacement">
+        <div class="treatment-card reveal">
+          <span class="tx-badge">Tooth Replacement</span>
+          <div class="tx-image-wrap">
+            <img src="images/Dental%20Implant.png" alt="Best dental implant clinic Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Dental Implant</h4>
+            <p>The gold standard for missing teeth. Titanium root screws anchor crowns permanently, acting and looking like real teeth.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Fully restores bite forces &amp; speech</li>
+              <li><span>✓</span> Prevents jawbone deterioration</li>
+              <li><span>✓</span> Surgical biocompatible titanium</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Veneers -->
+      <div class="col treatment-card-col" data-category="replacement">
+        <div class="treatment-card reveal" style="--delay:.08s">
+          <span class="tx-badge">Tooth Replacement</span>
+          <div class="tx-image-wrap">
+            <img src="images/Veneers.png" alt="Cosmetic dental veneers smile makeover">
+          </div>
+          <div class="tx-body">
+            <h4>Veneers</h4>
+            <p>Thin porcelain shells placed on the front of teeth to correct heavy stains, chips, gaps, or mild crowding.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Fast track to a complete makeover</li>
+              <li><span>✓</span> Highly stain-resistant ceramic surfaces</li>
+              <li><span>✓</span> Minimally invasive preparations</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9: Tooth Extraction -->
+      <div class="col treatment-card-col" data-category="preventive">
+        <div class="treatment-card reveal" style="--delay:.16s">
+          <span class="tx-badge">Preventive &amp; Kids</span>
+          <div class="tx-image-wrap">
+            <img src="images/Tooth%20Extraction.png" alt="Safe tooth extraction clinic Nagercoil">
+          </div>
+          <div class="tx-body">
+            <h4>Tooth Extraction</h4>
+            <p>Sterile, controlled extraction of severely decayed, crowded, or impacted wisdom teeth to keep the mouth healthy.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Gentle, compassionate procedures</li>
+              <li><span>✓</span> Advanced bone-preserving techniques</li>
+              <li><span>✓</span> Full post-procedure recovery support</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10: Cleaning the Teeth -->
+      <div class="col treatment-card-col" data-category="preventive">
+        <div class="treatment-card reveal">
+          <span class="tx-badge">Preventive &amp; Kids</span>
+          <div class="tx-image-wrap">
+            <img src="images/Cleaning%20the%20Teeth.png" alt="Ultrasonic teeth scaling cleaning Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Cleaning the Teeth</h4>
+            <p>Keep your gums in peak health. Advanced ultrasonic scaling sweeps away plaque, dental tartar, and dark surface stains.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Blocks gingivitis &amp; chronic breath issues</li>
+              <li><span>✓</span> Polishes enamel for dental freshness</li>
+              <li><span>✓</span> Recommended every 6 months</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: Child Dentistry -->
+      <div class="col treatment-card-col" data-category="preventive">
+        <div class="treatment-card reveal" style="--delay:.08s">
+          <span class="tx-badge">Preventive &amp; Kids</span>
+          <div class="tx-image-wrap">
+            <img src="images/Child%20Dentistry.png" alt="Best pediatric child dentist in Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Child Dentistry (Pediatric)</h4>
+            <p>Specialized children's care, offering stress-free treatments, cavity protective seals, and teeth growth monitoring.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> Pediatric habit-breaking appliances</li>
+              <li><span>✓</span> Fun, gentle clinical environment</li>
+              <li><span>✓</span> Decay sealants &amp; fluoride therapy</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12: Implant Rehabilitation -->
+      <div class="col treatment-card-col" data-category="replacement">
+        <div class="treatment-card reveal" style="--delay:.16s">
+          <span class="tx-badge">Tooth Replacement</span>
+          <div class="tx-image-wrap">
+            <img src="images/Implant%20Rehabilitation.png" alt="Full-mouth implant rehabilitation Kanyakumari">
+          </div>
+          <div class="tx-body">
+            <h4>Implant Rehabilitation</h4>
+            <p>Full arch restoration combining CBCT pre-surgical plotting with custom hybrid prosthesis to restore full chewing forces.</p>
+            <ul class="tx-bullets">
+              <li><span>✓</span> High-precision digital surgical guides</li>
+              <li><span>✓</span> Full-arch fixed structural bridges</li>
+              <li><span>✓</span> Restores original facial symmetry</li>
+            </ul>
+            <a href="contact.html" class="tx-btn">Book Appointment
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta-band text-center reveal">
+      <h2>Not Sure Which Treatment You Need?</h2>
+      <p class="mb-4">Talk to Kanyakumari's most trusted orthodontic team — we'll guide you to the right treatment plan.</p>
+      <a href="contact.html" class="btn-light-outline">Book a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+<!-- Filter Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".btn-filter");
+  const treatmentCards = document.querySelectorAll(".treatment-card-col");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Toggle active states
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filterValue = button.getAttribute("data-filter");
+
+      treatmentCards.forEach(card => {
+        const category = card.getAttribute("data-category");
+        if (filterValue === "all" || category === filterValue) {
+          card.style.display = "";
+          // Re-trigger scroll reveal transitions cleanly
+          setTimeout(() => {
+            const innerCard = card.querySelector(".treatment-card");
+            if (innerCard) innerCard.classList.add("is-visible");
+          }, 40);
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  /* ── Auto-cycle card highlight every 3 seconds ─────────── */
+  let currentIndex = 0;
+
+  function getVisibleCards() {
+    return Array.from(document.querySelectorAll(".treatment-card-col"))
+      .filter(col => col.style.display !== "none")
+      .map(col => col.querySelector(".treatment-card"));
+  }
+
+  function pulseNext() {
+    const cards = getVisibleCards();
+    if (!cards.length) return;
+
+    // Remove pulse from all
+    cards.forEach(c => c && c.classList.remove("tx-pulse-active"));
+
+    // Wrap around
+    if (currentIndex >= cards.length) currentIndex = 0;
+
+    const card = cards[currentIndex];
+    if (card) card.classList.add("tx-pulse-active");
+
+    currentIndex++;
+  }
+
+  // Start after a short delay
+  setTimeout(() => {
+    pulseNext();
+    setInterval(pulseNext, 3000);
+  }, 800);
+});
+</script>
+</body>
+</html>

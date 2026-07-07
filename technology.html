@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Technology in Kanyakumari | CBCT, OPG, Invisalign — Darshan Dental</title>
+<meta name="description" content="Darshan Dental, the best dental clinic in Kanyakumari, uses in-house CBCT, Ceph, OPG imaging, intra-oral cameras and a strict 6-stage sterilization protocol for world-class dental care.">
+<meta name="keywords" content="CBCT Scan Kanyakumari, Dental X-ray Nagercoil, OPG Kanyakumari, Dental Sterilization, Best Dental Technology Kanyakumari, Intraoral Scanning Kanyakumari">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Technology Page Specific Styles ────────────────────────── */
+
+  /* Tab Nav Grid */
+  .tech-nav-pills {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+  .tech-nav-pills .nav-item {
+    width: 100%;
+  }
+  .tech-nav-pills .nav-link {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .84rem;
+    color: var(--text-light);
+    background: #fff;
+    border: 1.5px solid var(--border);
+    padding: 12px 10px;
+    border-radius: 16px;
+    transition: all .26s cubic-bezier(.22,1,.36,1);
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(17,24,39,.02);
+  }
+  .tech-nav-pills .nav-link:hover {
+    color: var(--green);
+    border-color: var(--green);
+    background: var(--green-light);
+    transform: translateY(-2px);
+  }
+  .tech-nav-pills .nav-link.active {
+    color: #fff;
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 6px 18px rgba(26,122,76,.24);
+  }
+
+  /* Tab Card Pane */
+  .tech-tab-content {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 10px 40px rgba(17,24,39,.04);
+    padding: 44px;
+    margin-top: 30px;
+    position: relative;
+  }
+  .tech-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(17,24,39,.08);
+  }
+  .tech-carousel-btn:hover {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(26,122,76,.24);
+  }
+  .tech-carousel-btn.prev {
+    left: -22px;
+  }
+  .tech-carousel-btn.next {
+    right: -22px;
+  }
+  @media (max-width: 991px) {
+    .tech-carousel-btn.prev { left: -10px; }
+    .tech-carousel-btn.next { right: -10px; }
+  }
+  @media (max-width: 575px) {
+    .tech-carousel-btn {
+      display: none;
+    }
+  }
+  .tech-pane-title {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tech-pane-desc {
+    font-size: .94rem;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .tech-pane-img {
+    border-radius: 18px;
+    border: 3px solid var(--border);
+    box-shadow: 0 8px 30px rgba(17,24,39,.06);
+    transition: transform .4s ease;
+    object-fit: cover;
+    max-height: 320px;
+    width: 100%;
+  }
+  .tab-pane:hover .tech-pane-img {
+    transform: scale(1.02);
+  }
+
+  /* ── Sterilization Timeline Stepper ────────────────────────── */
+  .step-container {
+    position: relative;
+    padding: 0 10px;
+  }
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: none; /* Hide scrollbar for clean look */
+    gap: 16px;
+  }
+  .step-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Connecting line behind steps */
+  .step-nav::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: var(--border);
+    z-index: 1;
+  }
+  
+  .step-item {
+    flex: 1;
+    min-width: 110px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .step-link {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0;
+  }
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: .95rem;
+    color: var(--text-light);
+    transition: all .28s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 4px 10px rgba(17,24,39,.04);
+  }
+  .step-name {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .75rem;
+    color: var(--text-light);
+    transition: all .28s ease;
+    white-space: nowrap;
+  }
+  .step-link:hover .step-num {
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateY(-3px);
+  }
+  .step-link.active .step-num {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(26,122,76,.3);
+    transform: scale(1.08);
+  }
+  .step-link.active .step-name {
+    color: var(--dark);
+    font-weight: 800;
+  }
+
+  /* ── Responsive breaks ────────────────────────────────── */
+  @media(max-width:991px) {
+    .tech-nav-pills { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .tech-tab-content { padding: 30px; }
+  }
+  @media(max-width:575px) {
+    .tech-nav-pills { grid-template-columns: repeat(2, 1fr); }
+    .tech-tab-content { padding: 24px 20px; }
+    .tech-pane-title { font-size: 1.2rem; }
+    .step-item { min-width: 95px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link active" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>Technology</div>
+    <h1>Advanced Dental Technology</h1>
+  </div>
+</div>
+
+<!-- ============================================================
+     DIAGNOSTICS & IMAGING SECTION
+     ============================================================ -->
+<section class="section pt-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="eyebrow mx-auto">Precision Diagnostics</div>
+      <h2>State-Of-The-Art Medical Equipment</h2>
+      <p class="text-muted mt-2 mx-auto" style="max-width:780px">As the best dental clinic in Kanyakumari, we take pride in offering sophisticated diagnostics. Darshan Dental uses cutting-edge tools, including in-house CBCT, OPG, and digital scan systems, to map out accurate treatment paths with minimal discomfort.</p>
+    </div>
+
+    <!-- Custom Tech Grid Pills -->
+    <ul class="nav tech-nav-pills justify-content-center reveal" id="techTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#t1" type="button" role="tab">Intra-oral Camera</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t2" type="button" role="tab">RVG Digital X-ray</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t3" type="button" role="tab">Rotary Endodontics</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t4" type="button" role="tab">OPG X-Ray</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t5" type="button" role="tab">Cephalostat</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t6" type="button" role="tab">Intraoral Scanning</button>
+      </li>
+    </ul>
+
+    <!-- Tab Contents -->
+    <div class="tab-content tech-tab-content reveal" style="--delay:.1s">
+      <!-- Carousel Navigation Buttons -->
+      <button class="tech-carousel-btn prev" id="techPrevBtn" aria-label="Previous Technology">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="tech-carousel-btn next" id="techNextBtn" aria-label="Next Technology">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      
+      <!-- 1: Intra-oral Camera -->
+      <div class="tab-pane fade show active" id="t1" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> Intra-oral Camera wand</h4>
+            <p class="tech-pane-desc">Capture and display crystal-clear digital images from inside the mouth. Shaped like a small wand, these cameras connect wirelessly to display detailed enamel cracks, surface decay, and tooth fractures magnified on screen, making patient education transparent and simple.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Intra%20oral%20camera.png" class="tech-pane-img" alt="Intraoral camera wand dental diagnosis Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: RVG Digital X-ray -->
+      <div class="tab-pane fade" id="t2" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> RVG Digital X-ray System</h4>
+            <p class="tech-pane-desc">RVG (Radio Visio Graphy) is a high-resolution digital X-ray sensor that renders clinical images instantly. By avoiding film processing, it allows our team to identify hidden interproximal decay and bone loss in seconds with up to 90% reduced radiation compared to conventional methods.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/RVG%20digital%20X%20ray.png" class="tech-pane-img" alt="RVG digital dental X-ray sensor Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Rotary Endodontics -->
+      <div class="tab-pane fade" id="t3" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> Rotary Endodontics Systems</h4>
+            <p class="tech-pane-desc">Uses modern nickel-titanium flexible files powered by a micro-motor to navigate, shape, and sterilize root canals. This tool ensures that root canal procedures are completed in a fraction of the time, with maximum accuracy and minimal patient fatigue.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Rotary%20Endodontics.png" class="tech-pane-img" alt="Rotary endodontic root canal motor Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: OPG -->
+      <div class="tab-pane fade" id="t4" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> Panoramic OPG X-Ray</h4>
+            <p class="tech-pane-desc">Our Orthopantomogram (OPG) machine scans the full curvature of your jaws in one quick panoramic sweep. It maps out all teeth, sinuses, and mandibular nerves, making it a critical pre-requisite for placing implants safely and analyzing wisdom teeth.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/OPG.png" class="tech-pane-img" alt="OPG panoramic dental x-ray scanner Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Cephalostat -->
+      <div class="tab-pane fade" id="t5" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> Cephalometric (Ceph) X-Ray</h4>
+            <p class="tech-pane-desc">A Cephalostat captures a highly standardized side-profile view of the skull structure, jaw margins, and facial profile. It is the gold standard diagnostic tool used to plan orthodontic alignments, cosmetic brace fittings, and Invisalign setups.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/A%20Cephalostat%20(Ceph%20X-ray).png" class="tech-pane-img" alt="Cephalometric lateral skull orthodontic x-ray Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Intraoral Scanning -->
+      <div class="tab-pane fade" id="t6" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> 3D Intraoral Scanning</h4>
+            <p class="tech-pane-desc">Ditches uncomfortable, gooey dental putty templates for high-speed digital optics. Our intraoral scanner captures thousands of points of details to map out a precise 3D model of your teeth, used for custom crown mockups and Invisalign aligner fabrication.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Intraoral%20scanning.png" class="tech-pane-img" alt="3D digital intraoral scanner Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STERILIZATION & CLINICAL SAFETY SECTION
+     ============================================================ -->
+<section class="section bg-tint">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="eyebrow mx-auto">Clinical Hygiene</div>
+      <h2>6-Stage Sterilization &amp; Safety Protocol</h2>
+      <p class="text-muted mt-2 mx-auto" style="max-width:700px">Safety and infection control are the cornerstones of our practice. We follow a strict 6-stage instrument preparation cycle to ensure absolute safety.</p>
+    </div>
+
+    <!-- Stepper Navigation -->
+    <div class="step-container mb-4 reveal">
+      <ul class="nav step-nav" role="tablist">
+        <li class="step-item" role="presentation">
+          <button class="step-link active" data-bs-toggle="pill" data-bs-target="#s1" type="button" role="tab">
+            <span class="step-num">01</span>
+            <span class="step-name">Cleaning</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s2" type="button" role="tab">
+            <span class="step-num">02</span>
+            <span class="step-name">Cold Sterilization</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s3" type="button" role="tab">
+            <span class="step-num">03</span>
+            <span class="step-name">Ultrasonic</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s4" type="button" role="tab">
+            <span class="step-num">04</span>
+            <span class="step-name">Packaging</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s5" type="button" role="tab">
+            <span class="step-num">05</span>
+            <span class="step-name">Autoclave</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s6" type="button" role="tab">
+            <span class="step-num">06</span>
+            <span class="step-name">Storage</span>
+          </button>
+        </li>
+        <li class="step-item" role="presentation">
+          <button class="step-link" data-bs-toggle="pill" data-bs-target="#s7" type="button" role="tab">
+            <span class="step-num">★</span>
+            <span class="step-name">Disposables</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Stepper Contents -->
+    <div class="tab-content tech-tab-content reveal" style="--delay:.1s">
+      
+      <!-- Stage 1 -->
+      <div class="tab-pane fade show active" id="s1" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>01.</span> Manual Instrument Cleaning</h4>
+            <p class="tech-pane-desc">Every instrument undergoes careful hand-scrubbing with specialized medical detergent solutions. This removes physical debris and build-up from joint surfaces before they advance to deep thermal sterilization.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Instrument%20cleaning.png" class="tech-pane-img" alt="Manual hand scrub dental instrument cleaning">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="tab-pane fade" id="s2" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>02.</span> Hospital-Grade Cold Sterilization</h4>
+            <p class="tech-pane-desc">Instruments and clinical utilities that cannot withstand the high heat of steam autoclaving are fully immersed in a high-level hospital disinfectant chemical bath to dissolve and eliminate pathogens safely.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/cold%20sterilization.png" class="tech-pane-img" alt="Chemical cold sterilization bath dental clinic">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="tab-pane fade" id="s3" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>03.</span> Ultrasonic Cavitation Cleaning</h4>
+            <p class="tech-pane-desc">Instruments are immersed in an ultrasonic bath tank. Rapid microscopic bubbles created by high-frequency sound waves implode across all grooves, folds, and joints, removing tiny debris missed by manual scrubbing.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Ultrasonic.png" class="tech-pane-img" alt="Ultrasonic wave bath cleaning dental clinic Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="tab-pane fade" id="s4" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>04.</span> Individual Sterile Packaging</h4>
+            <p class="tech-pane-desc">Cleaned and dried tools are sealed in medical-grade sterilization pouches. Each pouch features a thermal-sensitive chemical color strip that indicates when complete sterilization has been achieved.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Packaging.png" class="tech-pane-img" alt="Sealing surgical instruments in sterilization pouches">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 5 -->
+      <div class="tab-pane fade" id="s5" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>05.</span> Class-B Autoclave Sterilization</h4>
+            <p class="tech-pane-desc">Pouches are processed in a medical Class-B autoclave under high-pressure saturated steam. This heat reaches a minimum of 134°C, killing all bacteria, spores, and viruses to ensure absolute sterility.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Autoclave.png" class="tech-pane-img" alt="Class B high pressure autoclave sterilizer Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 6 -->
+      <div class="tab-pane fade" id="s6" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>06.</span> Sealed Sterile Storage</h4>
+            <p class="tech-pane-desc">Packaged sterile pouches are placed in dedicated dust-proof UV storage cabinets. They remain sealed and sterile until they are opened immediately before use directly at the patient's chair.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Storage.png" class="tech-pane-img" alt="Sterile UV storage cabinet dental clinic">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 7: Disposables -->
+      <div class="tab-pane fade" id="s7" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>★</span> Single-Use Disposable Materials</h4>
+            <p class="tech-pane-desc">All single-use supplies — including injection syringes, clinical gloves, suction tips, patient bibs, and root canal guides — are strictly disposed of after every patient, ensuring zero cross-contamination risk.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Disposable%20Materials.png" class="tech-pane-img" alt="Disposable sterile syringes gloves and suction tips Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta-band text-center reveal">
+      <h2>Precision Diagnostics. Painless Treatment.</h2>
+      <p class="mb-4">Experience the region's most advanced dental technology at Kanyakumari's best dental clinic.</p>
+      <a href="contact.html" class="btn-light-outline">Book an Appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

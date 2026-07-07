@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Best Dental Clinic in Kanyakumari — Darshan Dental</title>
+<meta name="description" content="Learn about Darshan Dental & Orthodontic Clinic — the best dental clinic in Kanyakumari, led by Dr. SD. Milling Tania Niranjan, MDS Orthodontist, serving Nagercoil & Anjugramam.">
+<meta name="keywords" content="Best Dental Clinic in Kanyakumari, Orthodontist Kanyakumari, Dr Tania Niranjan, Dentist Nagercoil, Dental Clinic Anjugramam">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── About page specific styles ─────────────────────────── */
+
+  /* Clinic intro section */
+  .about-intro-img {
+    border-radius: 22px;
+    box-shadow: 0 20px 56px rgba(17,24,39,.13);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .about-intro-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 28px 72px rgba(26,122,76,.18);
+  }
+
+  /* ── Founder profile card ──────────────────────────────── */
+  .about-founder-section {
+    background: #fff;
+    padding: 80px 0;
+  }
+
+  .about-founder-photo {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .about-founder-photo img {
+    width: 300px;
+    height: 360px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 26px;
+    box-shadow: 0 24px 64px rgba(26,122,76,.2);
+    border: 4px solid var(--green-light);
+    display: block;
+    margin: 0 auto;
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .about-founder-photo:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 32px 80px rgba(26,122,76,.28);
+  }
+  .about-founder-badge {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: #fff;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .75rem;
+    padding: 9px 20px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    box-shadow: 0 6px 22px rgba(26,122,76,.38);
+    animation: pulseGreen 2.5s ease infinite;
+  }
+
+  .about-founder-name {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    color: var(--dark);
+  }
+  .about-founder-cred {
+    display: block;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--green);
+    margin-bottom: 18px;
+  }
+  .about-founder-intro {
+    font-size: 1rem;
+    color: var(--text-light);
+    border-left: 3px solid var(--green);
+    padding-left: 16px;
+    margin-bottom: 18px;
+    font-style: italic;
+    line-height: 1.75;
+  }
+  .about-founder-body p {
+    font-size: .94rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* Membership badges */
+  .about-memberships {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .about-membership-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-light);
+    border: 1.5px solid rgba(26,122,76,.2);
+    padding: 7px 16px;
+    border-radius: 100px;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .about-membership-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(26,122,76,.18);
+    background: var(--green);
+    color: #fff;
+  }
+  .about-membership-badge:hover svg { stroke: #fff; }
+
+  /* ── Areas of Special Interest ─────────────────────────── */
+  .about-interests-section {
+    background: var(--bg);
+    padding: 20px 0 80px;
+  }
+
+  .interest-card {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 30px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+  }
+  .interest-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--green), var(--teal));
+    border-radius: 4px 0 0 4px;
+    transition: width .3s ease;
+  }
+  .interest-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .interest-card:hover::before { width: 6px; }
+
+  .interest-icon {
+    width: 58px; height: 58px;
+    border-radius: 16px;
+    background: var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    transition: background .3s ease, transform .3s ease;
+  }
+  .interest-card:hover .interest-icon {
+    background: var(--green);
+    transform: scale(1.08) rotate(-4deg);
+  }
+  .interest-icon svg { width: 26px; height: 26px; stroke: var(--green); transition: stroke .3s ease; }
+  .interest-card:hover .interest-icon svg { stroke: #fff; }
+
+  .interest-card h4 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .interest-card p {
+    font-size: .88rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .interest-card .int-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media(max-width:991px){
+    .about-founder-section { padding: 60px 0; }
+    .about-interests-section { padding: 60px 0; }
+    .about-founder-photo img { width: 260px; height: 310px; }
+  }
+  @media(max-width:767px){
+    .about-founder-photo { margin-bottom: 44px; }
+    .about-founder-photo img { width: 230px; height: 280px; }
+    .about-founder-name { font-size: 1.5rem; }
+  }
+  @media(max-width:575px){
+    .about-founder-section { padding: 44px 0; }
+    .about-founder-photo img { width: 190px; height: 240px; }
+    .about-founder-badge { font-size: .68rem; padding: 7px 14px; }
+    .interest-card { padding: 26px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>About Us</div>
+    <h1>About Darshan Dental &amp; Orthodontic Clinic</h1>
+  </div>
+</div>
+
+<!-- ============================================================
+     CLINIC INTRO
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 reveal from-left">
+        <img src="images/Dental-Excellence.png" class="about-intro-img w-100" alt="Best dental clinic in Kanyakumari - Darshan Dental interior">
+      </div>
+      <div class="col-lg-6 reveal from-right">
+        <div class="eyebrow">Welcome to Darshan Dental</div>
+        <h2>The Region's Most Reputed &amp; Trusted Dental-Service Provider</h2>
+        <p class="text-muted mt-3">We are one of the most reputed and trusted dental-service providers in the Kanyakumari region, close to the Koodankulam Anuvijay township. As one of the <strong>best dentists in Nagercoil</strong>, we bring world-class dental expertise and facilities to Anjugramam and its surrounding communities.</p>
+        <p class="text-muted">Darshan Dental &amp; Orthodontic Clinic is located just 5 km from Koodankulam, making us one of the most accessible dental clinics in the wider Kanyakumari district.</p>
+        <a href="contact.html" class="btn-brand mt-3" style="display:inline-flex">Book a Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================================
+     AREAS OF SPECIAL INTEREST
+     ============================================================ -->
+<section class="about-interests-section">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="eyebrow mx-auto">Clinical Expertise</div>
+      <h2>Areas of Special Interest</h2>
+      <p class="text-muted mt-2" style="max-width:580px;margin:0 auto">Dr. Tania brings specialised academic and clinical mastery in three key domains of modern orthodontics.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- 1: Orthodontics -->
+      <div class="col-lg-4 col-md-6 reveal" style="--delay:.0s">
+        <div class="interest-card">
+          <span class="int-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+            Speciality 01
+          </span>
+          <div class="interest-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C9 2 6.5 3.6 6.5 7c0 2.4.6 3.6 1 5.6.4 2.1.5 5.6 1.6 7.9.4.9 1.3 1 1.7.1.6-1.3.7-3.6 1.2-3.6s.6 2.3 1.2 3.6c.4.9 1.3.8 1.7-.1 1.1-2.3 1.2-5.8 1.6-7.9.4-2 1-3.2 1-5.6C17.5 3.6 15 2 12 2Z"/>
+            </svg>
+          </div>
+          <h4>Orthodontics</h4>
+          <p>Orthodontics is the diagnosis, prevention, and correction of malpositioned teeth and jaws. Dr. Tania offers a full spectrum of orthodontic solutions — from traditional metal braces and ceramic braces to lingual braces and Invisalign clear aligners — tailored individually to each patient's anatomy and lifestyle.</p>
+          <p style="margin-top:10px">Her gold-medal academic background and 13+ years of practice make her one of the most sought-after orthodontists in Kanyakumari and Nagercoil.</p>
+        </div>
+      </div>
+
+      <!-- 2: Micro Implant Anchorage -->
+      <div class="col-lg-4 col-md-6 reveal" style="--delay:.1s">
+        <div class="interest-card">
+          <span class="int-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+            Speciality 02
+          </span>
+          <div class="interest-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="2" x2="12" y2="22"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h4>Micro Implant Anchorage in Orthodontics</h4>
+          <p>Temporary Anchorage Devices (TADs), or micro-implants, are tiny titanium screws placed in the jawbone to provide an absolute and stable anchor point during orthodontic tooth movement. This allows complex tooth movements that were previously impossible with conventional braces alone.</p>
+          <p style="margin-top:10px">Dr. Tania's expertise in TAD-supported treatment means patients achieve superior outcomes — including vertical control, space closure and bite correction — without the need for surgery in many cases.</p>
+        </div>
+      </div>
+
+      <!-- 3: Management of Skeletal Malocclusion -->
+      <div class="col-lg-4 col-md-6 reveal" style="--delay:.2s">
+        <div class="interest-card">
+          <span class="int-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+            Speciality 03
+          </span>
+          <div class="interest-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6L12 2Z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h4>Management of Skeletal Malocclusion</h4>
+          <p>Skeletal malocclusion refers to jaw discrepancies — such as an underbite, overbite, or crossbite — caused by abnormal bone development rather than tooth position alone. These cases require carefully planned, multi-disciplinary management.</p>
+          <p style="margin-top:10px">Dr. Tania employs advanced diagnostic tools including CBCT 3D imaging, cephalometric analysis, and OPG to precisely assess jaw relationships. Treatment may involve functional appliances during growth, orthodontic camouflage, or coordinated surgical-orthodontic planning for adult patients — delivering harmonious facial aesthetics and optimal function.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band text-center reveal">
+      <h2>Experience the Best Dental Care in Kanyakumari</h2>
+      <p class="mb-4">Schedule your consultation with our expert team at Anjugramam today.</p>
+      <a href="contact.html" class="btn-light-outline">Book Your Appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

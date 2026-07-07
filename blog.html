@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Blog | Tips from the Best Dental Clinic in Kanyakumari — Darshan Dental</title>
+<meta name="description" content="Dental care tips, treatment guides & oral health advice from Darshan Dental, the best dental clinic in Kanyakumari — covering implants, braces, root canal & more.">
+<meta name="keywords" content="Dental Blog Kanyakumari, Oral Health Tips Nagercoil, Root Canal Treatment Cost Kanyakumari, Invisalign vs Braces, Dental Implant Aftercare, Best Dentist Kanyakumari Blog">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Custom Blog Card & Modal Styles ────────────────────────── */
+  .blog-card {
+    cursor: pointer;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(17,24,39,.03);
+    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+  }
+  .blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(17,24,39,.08);
+    border-color: rgba(26,122,76,.25);
+  }
+  .blog-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .blog-card:hover img {
+    transform: scale(1.03);
+  }
+
+  /* Modal Wrapper */
+  .blog-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+  }
+  .blog-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .blog-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+  }
+  .blog-modal-dialog {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 760px;
+    max-height: 85vh;
+    background: #fff;
+    border-radius: 28px;
+    overflow-y: auto;
+    box-shadow: 0 24px 64px rgba(17, 24, 39, 0.16);
+    transform: translateY(20px) scale(0.96);
+    transition: transform .35s cubic-bezier(.22,1,.36,1);
+    scrollbar-width: thin;
+  }
+  .blog-modal.active .blog-modal-dialog {
+    transform: translateY(0) scale(1);
+  }
+  
+  /* Close Cross Button */
+  .blog-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--border);
+    font-size: 24px;
+    line-height: 1;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(17,24,39,.06);
+    transition: all .2s ease;
+    z-index: 10;
+    padding-bottom: 4px;
+  }
+  .blog-modal-close:hover {
+    color: var(--green);
+    border-color: var(--green);
+    transform: scale(1.08);
+  }
+  
+  /* Hero Banner inside modal */
+  .blog-modal-hero {
+    position: relative;
+    height: 320px;
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .blog-modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blog-modal-hero .blog-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    background: var(--green);
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: .05em;
+    box-shadow: 0 4px 14px rgba(26,122,76,.3);
+    z-index: 5;
+  }
+  
+  /* Article Text styling */
+  .blog-modal-body {
+    padding: 40px;
+  }
+  .blog-modal-text {
+    font-size: .98rem;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .blog-modal-text h4 {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+  .blog-modal-text p {
+    margin-bottom: 16px;
+  }
+  .blog-modal-text ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  .blog-modal-text li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .blog-modal-text strong {
+    color: var(--dark);
+  }
+  
+  @media(max-width:767px) {
+    .blog-modal-hero { height: 210px; }
+    .blog-modal-hero .blog-tag { bottom: 15px; left: 20px; }
+    .blog-modal-body { padding: 24px 20px; }
+    .blog-modal-close { top: 15px; right: 15px; width: 34px; height: 34px; font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>Blog</div>
+    <h1>Dental Care Tips &amp; Insights</h1>
+  </div>
+</div>
+
+<!-- ARTICLES GRID -->
+<section class="section pt-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- 1: Root Canal -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" data-blog-id="root-canal">
+          <img src="images/Root%20Canal%20Treatment.png" alt="Root canal treatment cost in Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Root Canal</span>
+            <h5>Root Canal Treatment Cost in Kanyakumari — What to Expect</h5>
+            <p>A transparent breakdown of what affects root canal treatment cost in Kanyakumari, and why our pricing stays reasonable.</p>
+            <div class="meta">5 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Invisalign -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.08s" data-blog-id="invisalign">
+          <img src="images/Invisalign.png" alt="Invisalign vs braces Kanyakumari comparison">
+          <div class="blog-body">
+            <span class="blog-tag">Orthodontics</span>
+            <h5>Invisalign vs Traditional Braces: Which Suits You?</h5>
+            <p>A clear comparison of clip braces and Invisalign from Kanyakumari's pioneer Invisalign provider.</p>
+            <div class="meta">4 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: Implant Aftercare -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.16s" data-blog-id="implant-aftercare">
+          <img src="images/Dental%20Implant.png" alt="Dental implant aftercare tips Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Implants</span>
+            <h5>5 Aftercare Tips Following Dental Implant Surgery</h5>
+            <p>Simple habits to protect your investment, from the best dental implant clinic in Kanyakumari.</p>
+            <div class="meta">3 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Pediatric Habits -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" data-blog-id="pediatric-habits">
+          <img src="images/Child%20Dentistry.png" alt="Pediatric dentistry tips Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Pediatric</span>
+            <h5>Breaking Thumb-Sucking &amp; Mouth-Breathing Habits Early</h5>
+            <p>Why early intervention from a pediatric dentist in Kanyakumari prevents bigger orthodontic issues later.</p>
+            <div class="meta">4 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: Veneers -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.08s" data-blog-id="veneers">
+          <img src="images/Veneers.png" alt="Veneers smile makeover guide Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Cosmetic</span>
+            <h5>Veneers 101: Your Fast-Track Smile Makeover</h5>
+            <p>How porcelain veneers fix gaps, staining and chipped teeth — a popular choice among Kanyakumari patients.</p>
+            <div class="meta">3 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: Dental Tourism -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.16s" data-blog-id="tourism">
+          <img src="images/Doctor-Treatment.png" alt="Dental tourism Kanyakumari guide for overseas patients">
+          <div class="blog-body">
+            <span class="blog-tag">Dental Tourism</span>
+            <h5>Planning Dental Treatment in Kanyakumari from Abroad</h5>
+            <p>A practical guide for NRIs and overseas patients combining quality treatment with a trip home.</p>
+            <div class="meta">6 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: 3D Imaging -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" data-blog-id="3d-imaging">
+          <img src="images/OPG.png" alt="CBCT scan and OPG digital 3D dental imaging diagnostics">
+          <div class="blog-body">
+            <span class="blog-tag">Diagnostics</span>
+            <h5>OPG and CBCT Dental Scans: Why 3D Imaging Matters</h5>
+            <p>Discover how OPG and 3D CBCT scans have revolutionized modern dental diagnostics, implant planning, and orthodontic care.</p>
+            <div class="meta">5 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Dentures vs Implants -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.08s" data-blog-id="dentures-vs-implants">
+          <img src="images/Complete%20Dentures.png" alt="Traditional complete dentures vs implant overdentures Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Implants</span>
+            <h5>Complete Dentures vs. Implant-Supported Overdentures</h5>
+            <p>Compare traditional removable dentures with modern implant-supported restorations to find your best teeth replacement choice.</p>
+            <div class="meta">6 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9: Ultrasonic Scaling -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.16s" data-blog-id="ultrasonic-cleaning">
+          <img src="images/Cleaning%20the%20Teeth.png" alt="Ultrasonic dental scaling teeth cleaning Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Preventive</span>
+            <h5>The Importance of Professional Scaling: Ultrasonic Cleaning</h5>
+            <p>Learn how professional ultrasonic teeth cleaning sweeps away deep plaque and tartar build-up to protect your gum health.</p>
+            <div class="meta">4 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10: Dental Bridges -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" data-blog-id="dental-bridges">
+          <img src="images/Dental%20Bridges.png" alt="Dental bridges tooth replacement Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Prosthodontics</span>
+            <h5>Dental Bridges vs. Implants: Restoring Your Chewing Smile</h5>
+            <p>Understand the structural difference, durability, and cost of dental bridges compared to implants.</p>
+            <div class="meta">5 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: Metal vs Ceramic Braces -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.08s" data-blog-id="metal-vs-ceramic-braces">
+          <img src="images/Orthodontic%20Braces.png" alt="Metal vs ceramic braces orthodontics Kanyakumari">
+          <div class="blog-body">
+            <span class="blog-tag">Orthodontics</span>
+            <h5>Deciding on Metal vs Ceramic Orthodontic Braces</h5>
+            <p>Compare the visibility, durability, and alignment speed of classic metal braces and discreet ceramic options.</p>
+            <div class="meta">5 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12: Tooth Fillings -->
+      <div class="col-md-6 col-lg-4">
+        <div class="blog-card reveal" style="--delay:.16s" data-blog-id="tooth-fillings">
+          <img src="images/Tooth%20Filling.png" alt="Modern composite tooth filling dental decay treatment">
+          <div class="blog-body">
+            <span class="blog-tag">Restorative</span>
+            <h5>How Modern Composite Tooth Fillings Save Decayed Teeth</h5>
+            <p>Say goodbye to silver fillings. Discover how tooth-colored composite resins restore health and aesthetics.</p>
+            <div class="meta">4 min read · Dr. Tania Niranjan</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta-band text-center reveal">
+      <h2>Have a Dental Question?</h2>
+      <p class="mb-4">Get expert advice from the best dental clinic in Kanyakumari.</p>
+      <a href="contact.html" class="btn-light-outline">Ask Us / Book a Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- ============================================================
+     CUSTOM DETAIL DIALOG MODAL
+     ============================================================ -->
+<div class="blog-modal" id="blogModal" tabindex="-1" aria-hidden="true">
+  <div class="blog-modal-backdrop" id="blogModalBackdrop"></div>
+  <div class="blog-modal-dialog">
+    <div class="blog-modal-content">
+      <button class="blog-modal-close" id="blogModalClose" aria-label="Close article">&times;</button>
+      <div class="blog-modal-hero">
+        <img id="modalImage" src="" alt="Article Banner">
+        <span class="blog-tag" id="modalTag">Category</span>
+      </div>
+      <div class="blog-modal-body">
+        <div class="meta mb-2" id="modalMeta">Read Time · Author</div>
+        <h3 id="modalTitle" class="mb-4">Article Title</h3>
+        <div id="modalContent" class="blog-modal-text">
+          <!-- Formatted Article Content Injected Dynamically -->
+        </div>
+        <div class="blog-modal-footer mt-5 pt-3 border-top d-flex gap-3">
+          <a href="contact.html" class="btn-brand text-decoration-none">Book Free Consultation</a>
+          <button class="btn-outline-brand" id="blogModalCloseBtn">Close Article</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+<!-- Custom Modal Trigger and Details Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Rich Article Databases
+  const blogDatabase = {
+    "root-canal": {
+      title: "Root Canal Treatment Cost in Kanyakumari — What to Expect",
+      tag: "Root Canal",
+      meta: "5 min read · Dr. Tania Niranjan",
+      image: "images/Root%20Canal%20Treatment.png",
+      content: `
+        <p>A root canal treatment is a highly effective, safe clinical procedure designed to preserve and rescue a natural tooth structure that has been severely compromised by deep dental decay, trauma, or tooth nerve infection.</p>
+        <h4>What Influences the Treatment Cost?</h4>
+        <p>Dental procedures vary based on several factors, ensuring patient care is matched to the tooth's specific anatomy:</p>
+        <ul>
+          <li><strong>Number of Root Canals:</strong> Front teeth generally have a single root canal, whereas molars can have three or four. More canals require more complex cleaning, shaping, and structural sealing.</li>
+          <li><strong>Severity of Infection:</strong> Advanced abscesses or old, calcified canal lines require supplementary preparatory appointments or specialized localized disinfectants.</li>
+          <li><strong>Choice of Protective Dental Crown:</strong> Following root canal therapy, the tooth naturally becomes more fragile. Installing a high-grade porcelain, zirconia, or metal-ceramic crown is essential to restore masticatory biting strength.</li>
+        </ul>
+        <h4>Why Choose Darshan Dental Clinic?</h4>
+        <p>We combine digital dental radiography sensors (RVG) with flexible nickel-titanium rotary files. This enables root canal procedures to be exceptionally fast, quiet, comfortable, and painless. Our price structure is transparent, providing Kanyakumari &amp; Nagercoil families with excellent value.</p>
+      `
+    },
+    "invisalign": {
+      title: "Invisalign vs Traditional Braces: Which Suits You?",
+      tag: "Orthodontics",
+      meta: "4 min read · Dr. Tania Niranjan",
+      image: "images/Invisalign.png",
+      content: `
+        <p>Deciding between clip-on orthodontics and state-of-the-art clear cosmetic aligners is a key decision in reclaiming a confident smile. Let's compare their clinical and practical differences:</p>
+        <h4>1. Visual Appeal &amp; Discretion</h4>
+        <ul>
+          <li><strong>Traditional Braces:</strong> Metal or ceramic brackets are bonded to front tooth enamel. Although modern ceramic brackets match tooth shades, they remain visible.</li>
+          <li><strong>Invisalign Aligners:</strong> Formed from virtually invisible medical-grade clear thermoplastic. They align teeth without metal brackets or wire frames.</li>
+        </ul>
+        <h4>2. Daily Routine &amp; Dietary Freedom</h4>
+        <ul>
+          <li><strong>Traditional Braces:</strong> Permanently anchored. Patients must avoid hard, sticky, or crunchy foods that can shear brackets or bend wire loops.</li>
+          <li><strong>Invisalign System:</strong> Fully removable aligners. You simply remove them before meals, allowing you to enjoy any foods and maintain pristine brushing and flossing routines.</li>
+        </ul>
+        <h4>3. Digital Planning and Predictability</h4>
+        <p>As the pioneer Invisalign provider in the Kanyakumari district, Darshan Dental utilizes 3D intraoral scans to build virtual orthodontic sequences. This ensures you can preview your future smile before the aligners are even made.</p>
+      `
+    },
+    "implant-aftercare": {
+      title: "5 Aftercare Tips Following Dental Implant Surgery",
+      tag: "Implants",
+      meta: "3 min read · Dr. Tania Niranjan",
+      image: "images/Dental%20Implant.png",
+      content: `
+        <p>A dental implant is a permanent, high-strength restoration that anchors custom dental crowns to the jawbone. Maintaining good post-surgical care is critical to promote osteointegration—the process where jawbone fuses with the biocompatible titanium root.</p>
+        <h4>1. Protect the Healing Site</h4>
+        <p>Avoid touching, probing, or rubbing the surgical wound with your tongue, fingers, or toothbrush bristles during the first 48 hours to preserve the healing blood clot.</p>
+        <h4>2. Prioritize a Soft, Cool Diet</h4>
+        <p>For the initial 3-5 days, eat soft foods like mashes, yogurt, broths, and smoothies. Avoid hot foods, carbonated drinks, or drinking through straws, as suction can disturb the surgical site.</p>
+        <h4>3. Keep Up Gentle Cleaning</h4>
+        <p>Do not brush directly over the sutures on day one. Instead, use a gentle warm saline mouth rinse (half a teaspoon of salt in warm water) after meals starting from day two.</p>
+        <h4>4. Manage Swelling Comfortably</h4>
+        <p>Apply cold packs to the outside of your cheek in 15-minute cycles during the first 24 hours to minimize natural surgical swelling.</p>
+        <h4>5. Rest and Avoid Heavy Strain</h4>
+        <p>Avoid heavy lifting, gym exercises, or cardiovascular strain for the first 3 days, as high blood pressure can trigger minor site bleeding.</p>
+      `
+    },
+    "pediatric-habits": {
+      title: "Breaking Thumb-Sucking &amp; Mouth-Breathing Habits Early",
+      tag: "Pediatric",
+      meta: "4 min read · Dr. Tania Niranjan",
+      image: "images/Child%20Dentistry.png",
+      content: `
+        <p>Childhood habits can play a profound role in how teeth align, jawbones grow, and facial bones structure themselves. Addressing these habits early prevents the need for invasive orthodontic treatments later in life.</p>
+        <h4>The Consequences of Prolonged Thumb-Sucking</h4>
+        <p>Sucking past age 4 puts constant pressure on the teeth and upper jaw. This can lead to:</p>
+        <ul>
+          <li><strong>Open Bite:</strong> A gap remains between the upper and lower front teeth when the jaw is fully closed.</li>
+          <li><strong>Jaw Narrowing:</strong> The constant suction forces the upper arch to narrow, causing teeth crowding.</li>
+        </ul>
+        <h4>The Risks of Mouth-Breathing</h4>
+        <p>Breathing primarily through the mouth changes the resting position of the tongue, often leading to a high-arched palate, retracted lower jaw, dry mouth, and an increased risk of childhood tooth decay.</p>
+        <h4>Gentle Orthodontic Intervention</h4>
+        <p>At Darshan Dental Clinic, we customize light, comfortable, and child-friendly habit-breaking appliances. These guide jaw development naturally and comfortably, preventing complex alignment issues in their teens.</p>
+      `
+    },
+    "veneers": {
+      title: "Veneers 101: Your Fast-Track Smile Makeover",
+      tag: "Cosmetic",
+      meta: "3 min read · Dr. Tania Niranjan",
+      image: "images/Veneers.png",
+      content: `
+        <p>If you want to correct heavy staining, front gaps, chips, or minor overlapping, porcelain veneers offer a quick and dazzling smile makeover.</p>
+        <h4>What Exactly are Veneers?</h4>
+        <p>Veneers are ultra-thin, custom-crafted shells made of high-strength porcelain or composite resin. They are designed to fit flush over the front surfaces of your teeth to correct their appearance.</p>
+        <h4>The Treatment Process:</h4>
+        <ol>
+          <li><strong>Aesthetic Consult:</strong> We design the length, width, and shade of your dream smile, taking your facial symmetry into account.</li>
+          <li><strong>Preparation:</strong> A micro-layer of enamel (less than 0.5mm) is prepared to ensure the veneers sit naturally.</li>
+          <li><strong>Bonding:</strong> Custom laboratory-fabricated porcelain shells are permanently bonded, creating a bright, stain-resistant, and highly durable smile.</li>
+        </ol>
+        <p>Veneers require minimal dental preparation and provide long-lasting cosmetic improvement, making them one of our clinic's most popular cosmetic options.</p>
+      `
+    },
+    "tourism": {
+      title: "Planning Dental Treatment in Kanyakumari from Abroad",
+      tag: "Dental Tourism",
+      meta: "6 min read · Dr. Tania Niranjan",
+      image: "images/Doctor-Treatment.png",
+      content: `
+        <p>Darshan Dental &amp; Orthodontic Clinic is proud to welcome patients from the Middle East, Europe, and North America. We provide top-tier clinical dental care alongside Kanyakumari's tourist experiences.</p>
+        <h4>Why Kanyakumari is a Premier Dental Destination</h4>
+        <ul>
+          <li><strong>World-Class Quality:</strong> We use high-precision sterilization, Class-B autoclaves, and top-tier implants, crowns, and aligners.</li>
+          <li><strong>Exceptional Savings:</strong> Patients can save up to 70% compared to Western clinical costs, easily covering the treatment and travel costs.</li>
+          <li><strong>Rich Travel Experience:</strong> Experience Kanyakumari's beautiful coastline, heritage sites, and township environments during recovery.</li>
+        </ul>
+        <h4>How to Plan Your Visit:</h4>
+        <ol>
+          <li><strong>Initial Review:</strong> Email or WhatsApp us your digital OPG dental scans or clinical reports.</li>
+          <li><strong>Treatment Timeline:</strong> We formulate a clear treatment timeline to suit your flight booking schedule.</li>
+          <li><strong>Care Coordination:</strong> We guide your local visits, ensuring a seamless and comfortable journey from booking to recovery.</li>
+        </ol>
+      `
+    },
+    "3d-imaging": {
+      title: "OPG and CBCT Dental Scans: Why 3D Imaging Matters",
+      tag: "Diagnostics",
+      meta: "5 min read · Dr. Tania Niranjan",
+      image: "images/OPG.png",
+      content: `
+        <p>Modern dentistry has moved beyond traditional flat 2D X-rays. With state-of-the-art panoramic OPG (Orthopantomogram) and CBCT (Cone Beam Computed Tomography) 3D dental scans, clinicians can see the full anatomical picture with absolute clarity.</p>
+        <h4>What makes 3D Diagnostics a Game-Changer?</h4>
+        <ul>
+          <li><strong>3D Bone Depth Visualization:</strong> Unlike 2D dental films, a CBCT scan maps the height, width, and density of your jawbone, showing the exact route for safe dental implant placement.</li>
+          <li><strong>Mandibular Nerve Mapping:</strong> Identifies mandibular nerve coordinates in molars, eliminating risks of nerve contact during wisdom tooth extractions.</li>
+          <li><strong>Orthodontic Symmetry:</strong> Captures orthodontic structures from multiple angles, allowing us to build precise Invisalign or clip plans.</li>
+        </ul>
+        <h4>Comfortable and High-Speed Scanning</h4>
+        <p>At Darshan Dental, our in-house OPG and Cephalostat digital scanners perform full dental sweeps in under 15 seconds. This provides diagnostic data immediately on screen with negligible radiation exposure compared to conventional dental films.</p>
+      `
+    },
+    "dentures-vs-implants": {
+      title: "Complete Dentures vs. Implant-Supported Overdentures",
+      tag: "Implants",
+      meta: "6 min read · Dr. Tania Niranjan",
+      image: "images/Complete%20Dentures.png",
+      content: `
+        <p>If you are restoring missing teeth, you have two primary options: traditional removable complete dentures or modern implant-supported overdentures. Understanding their functional differences will help you make the best choice:</p>
+        <h4>Traditional Complete Dentures</h4>
+        <p>Made of dental acrylic base plate mapped to your gums, complete dentures rely on suction forces to stay in place. While cost-effective and non-invasive, they can slide slightly during meals or speech, requiring regular adjustments.</p>
+        <h4>Implant-Supported Overdentures</h4>
+        <p>By surgically placing 2 to 4 biocompatible titanium implants in the jawbone, we can snap the overdentures securely into place. This offers several clinical advantages:</p>
+        <ul>
+          <li><strong>Absolute Stability:</strong> The snap-on locking mechanism prevents any sliding, slips, or gum friction during meals.</li>
+          <li><strong>Bone Volume Preservation:</strong> Implants stimulate the jawbone, preventing the natural bone loss and facial contour sagging associated with tooth loss.</li>
+          <li><strong>Improved Chewing Force:</strong> Restores up to 80% of normal biting strength, allowing you to enjoy your favorite foods with ease.</li>
+        </ul>
+      `
+    },
+    "ultrasonic-cleaning": {
+      title: "The Importance of Professional Scaling: Ultrasonic Cleaning",
+      tag: "Preventive",
+      meta: "4 min read · Dr. Tania Niranjan",
+      image: "images/Cleaning%20the%20Teeth.png",
+      content: `
+        <p>Even with thorough brushing and flossing twice a day, plaque and saliva minerals eventually combine to form calculus (tartar). Tartar is a hard deposit that cannot be removed by home brushing, making professional dental scaling vital for healthy gums.</p>
+        <h4>How Ultrasonic Scaling Protects Your Smile</h4>
+        <p>Professional teeth scaling uses high-frequency ultrasonic tips that vibrate micro-bubbles of water. This sweeps away tartar and hard surface stains safely without harming the underlying tooth enamel:</p>
+        <ul>
+          <li><strong>Blocks Gingivitis &amp; Periodontitis:</strong> Removes bacterial colonies that hide beneath the gumline, preventing chronic gum inflammation, bleeding, and bone loss.</li>
+          <li><strong>Eliminates Chronic Bad Breath:</strong> Eliminates deep pocket bacteria that cause chronic halitosis (bad breath).</li>
+          <li><strong>Stain Clearing:</strong> Clears tea, coffee, and tobacco stains to restore the natural shine of your enamel.</li>
+        </ul>
+        <p>Our senior clinicians recommend a scaling visit every 6 months to maintain peak oral health and catch potential issues early.</p>
+      `
+    },
+    "dental-bridges": {
+      title: "Dental Bridges vs. Implants: Restoring Your Chewing Smile",
+      tag: "Prosthodontics",
+      meta: "5 min read · Dr. Tania Niranjan",
+      image: "images/Dental%20Bridges.png",
+      content: `
+        <p>When you have one or more missing teeth, finding the right restoration method is key to returning to comfortable chewing and speaking. Let's compare standard dental bridges and dental implants:</p>
+        <h4>1. Tooth Structure Conservation</h4>
+        <ul>
+          <li><strong>Dental Bridges:</strong> Requires shaving down adjacent healthy teeth to act as anchor posts (abutments) for the artificial replacement tooth (pontic).</li>
+          <li><strong>Dental Implants:</strong> An independent titanium post is placed directly into the empty socket bone without altering neighbor teeth.</li>
+        </ul>
+        <h4>2. Longevity and Maintenance</h4>
+        <ul>
+          <li><strong>Dental Bridges:</strong> Typically last 8-15 years. Special flossers are needed to clean underneath the suspended bridge tooth.</li>
+          <li><strong>Dental Implants:</strong> Designed as a lifetime solution, fusing with the jawbone, and brushed/flossed normally just like natural teeth.</li>
+        </ul>
+        <h4>3. Biting Force and Comfort</h4>
+        <p>While bridges offer a quick, beautiful, and less invasive replacement, implants provide superior biting stability and prevent jawbone resorption. At Darshan Dental Clinic, we inspect your clinical scans to guide you to the perfect choice.</p>
+      `
+    },
+    "metal-vs-ceramic-braces": {
+      title: "Deciding on Metal vs Ceramic Orthodontic Braces",
+      tag: "Orthodontics",
+      meta: "5 min read · Dr. Tania Niranjan",
+      image: "images/Orthodontic%20Braces.png",
+      content: `
+        <p>If you're seeking to align crowded teeth or correct bite alignment issues, traditional metal braces and ceramic brackets are excellent clinical tools. Here is a breakdown of their features:</p>
+        <h4>Traditional Metal Braces</h4>
+        <p>Constructed from high-grade stainless steel, metal braces are the most robust and time-tested option. They tolerate heavy forces exceptionally well, making them ideal for complex corrections and faster adjustment tracks.</p>
+        <h4>Ceramic Discreet Braces</h4>
+        <p>Ceramic brackets are made from clear or tooth-colored polycrystalline structures. They blend in beautifully with your natural tooth shade, offering a popular, highly aesthetic choice for adult professionals and college students.</p>
+        <h4>Factors to Consider:</h4>
+        <ul>
+          <li><strong>Durability:</strong> Ceramic brackets are slightly more fragile than steel and require a bit more care with hard foods.</li>
+          <li><strong>Comfort:</strong> Both utilize gentle archwires to align teeth, with slight adjustments at monthly check-ins.</li>
+        </ul>
+      `
+    },
+    "tooth-fillings": {
+      title: "How Modern Composite Tooth Fillings Save Decayed Teeth",
+      tag: "Restorative",
+      meta: "4 min read · Dr. Tania Niranjan",
+      image: "images/Tooth%20Filling.png",
+      content: `
+        <p>Gone are the days of dark silver amalgam fillings. Modern restorative dentistry utilizes dental composite resin—a tooth-colored mixture of plastic and silica—to fix cavities while keeping your smile looking natural.</p>
+        <h4>The Advantages of Composite Fillings</h4>
+        <ul>
+          <li><strong>High Aesthetics:</strong> We match the resin shade to your teeth, making the restoration virtually invisible.</li>
+          <li><strong>Conservative Treatment:</strong> Requires less removal of healthy tooth structure compared to traditional silver amalgam fillings.</li>
+          <li><strong>Micro-Mechanical Bonding:</strong> The composite resin bonds directly to the tooth enamel, restoring structural strength.</li>
+        </ul>
+        <h4>How Long Do They Last?</h4>
+        <p>With good daily brushing and flossing, composite fillings typically last 7-10 years. We recommend routine clinical checkups to check margins and ensure your fillings remain fully sealed.</p>
+      `
+    }
+  };
+
+  // Selectors
+  const modal = document.getElementById("blogModal");
+  const modalBackdrop = document.getElementById("blogModalBackdrop");
+  const modalImage = document.getElementById("modalImage");
+  const modalTag = document.getElementById("modalTag");
+  const modalMeta = document.getElementById("modalMeta");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+  
+  const closeBtn1 = document.getElementById("blogModalClose");
+  const closeBtn2 = document.getElementById("blogModalCloseBtn");
+
+  // Open Modal function
+  function openBlogModal(blogId) {
+    const data = blogDatabase[blogId];
+    if (!data) return;
+
+    modalImage.src = data.image;
+    modalImage.alt = data.title;
+    modalTag.innerText = data.tag;
+    modalMeta.innerText = data.meta;
+    modalTitle.innerText = data.title;
+    modalContent.innerHTML = data.content;
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden"; // Stop body scrolling
+  }
+
+  // Close Modal function
+  function closeBlogModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = ""; // Restore body scrolling
+  }
+
+  // Event Listeners
+  document.querySelectorAll(".blog-card").forEach(card => {
+    card.addEventListener("click", function () {
+      const blogId = this.getAttribute("data-blog-id");
+      openBlogModal(blogId);
+    });
+  });
+
+  closeBtn1.addEventListener("click", closeBlogModal);
+  closeBtn2.addEventListener("click", closeBlogModal);
+  modalBackdrop.addEventListener("click", closeBlogModal);
+
+  // ESC Close
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeBlogModal();
+    }
+  });
+});
+</script>
+</body>
+</html>
