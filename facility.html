@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Clinic Facility | Best Dental Clinic in Kanyakumari — Darshan Dental</title>
+<meta name="description" content="Tour our state-of-the-art dental facility in Kanyakumari. Darshan Dental offers a clean, hygienic, and highly advanced environment for braces, implants, and general dentistry.">
+<meta name="keywords" content="Best Dental Clinic Kanyakumari, Dental Clinic Facility Anjugramam, Dentist Nagercoil, Hygienic Dental Clinic Kanyakumari, Dr Tania Niranjan Clinic">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Interactive Bento Grid Gallery ─────────────────────────── */
+  .facility-container {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+  .bento-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    gap: 24px;
+    width: 100%;
+    grid-auto-flow: dense;
+  }
+  .bento-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
+  }
+  .bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  /* Brand-aligned green overlay wash */
+  .bento-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 168, 81, 0.15), rgba(8, 131, 191, 0.15));
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Glassmorphic Magnifier Icon */
+  .bento-zoom-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  }
+  .bento-zoom-icon svg {
+    stroke: #fff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  }
+
+  /* Hover states */
+  .bento-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 168, 81, 0.25);
+  }
+  .bento-item:hover img {
+    transform: scale(1.05);
+  }
+  .bento-item:hover::before {
+    opacity: 1;
+  }
+  .bento-item:hover .bento-zoom-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Bento Spans */
+  .bento-item.tall {
+    grid-row: span 2;
+  }
+  .bento-item.wide {
+    grid-column: span 2;
+  }
+  .bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 1200px) {
+    .bento-gallery {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 210px;
+      gap: 20px;
+    }
+  }
+  @media (max-width: 991px) {
+    .bento-gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 190px;
+      gap: 18px;
+    }
+    .bento-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+  @media (max-width: 576px) {
+    .bento-gallery {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 230px;
+      gap: 16px;
+    }
+    .bento-item.wide, .bento-item.large, .bento-item.tall {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .bento-item {
+      border-radius: 16px;
+    }
+  }
+
+  /* ── Lightbox Styles ──────────────────────────────────────── */
+  .lightbox-overlay {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox-content {
+    position: relative;
+    max-width: 85%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .lightbox-overlay.active .lightbox-content img {
+    transform: scale(1);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #fff;
+    font-size: 44px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10001;
+    line-height: 1;
+    user-select: none;
+  }
+  .lightbox-close:hover {
+    color: var(--green);
+    transform: scale(1.1) rotate(90deg);
+  }
+  .lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    z-index: 10001;
+    user-select: none;
+  }
+  .lightbox-prev:hover, .lightbox-next:hover {
+    background: var(--green);
+    border-color: var(--green);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .lightbox-prev {
+    left: 40px;
+  }
+  .lightbox-next {
+    right: 40px;
+  }
+  @media (max-width: 768px) {
+    .lightbox-prev {
+      left: 15px;
+    }
+    .lightbox-next {
+      right: 15px;
+    }
+    .lightbox-prev, .lightbox-next {
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+    }
+    .lightbox-close {
+      top: 15px;
+      right: 20px;
+      font-size: 36px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip d-none d-md-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>📍 South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</div>
+    <div>📱 <a href="tel:+919659163699">+91 96591 63699</a> &nbsp;<span class="divider">|</span>&nbsp; ✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link active" href="facility.html">Our Facility</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>Our Facility</div>
+    <h1>Our Clinic Facility</h1>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="section pt-5 pb-5">
+  <div class="container facility-container">
+    <!-- Bento Grid Layout -->
+    <div class="bento-gallery">
+
+      <!-- Item 1 (Tall) -->
+      <div class="bento-item tall">
+        <img src="images/Facility-1.JPG" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 2 (Regular) -->
+      <div class="bento-item">
+        <img src="images/Facility-2.JPG" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 3 (Wide) -->
+      <div class="bento-item wide">
+        <img src="images/Facility-3.JPG" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 4 (Regular) -->
+      <div class="bento-item">
+        <img src="images/Facility-4.jpg" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 5 (Regular) -->
+      <div class="bento-item">
+        <img src="images/Facility-5.jpg" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 6 (Large) -->
+      <div class="bento-item large">
+        <img src="images/Facility-6.jpg" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 9 (Wide) -->
+      <div class="bento-item wide">
+        <img src="images/Facility-9.jpg" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 10 (Regular) -->
+      <div class="bento-item">
+        <img src="images/Facility-10.jpg" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Item 12 (Wide) -->
+      <div class="bento-item wide">
+        <img src="images/Facility-12.JPG" alt="Clinic Facility Image">
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox" class="lightbox-overlay">
+  <span class="lightbox-close" aria-label="Close lightbox">&times;</span>
+  <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="Zoomed Clinic Facility Image">
+  </div>
+  <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+</div>
+
+<!-- CTA -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta-band">
+      <div class="row align-items-center text-start">
+        <div class="col-lg-8">
+          <span class="cta-badge">Advanced Dental Care</span>
+          <h2>Experience Modern Dental Care Firsthand</h2>
+          <p class="mb-lg-0">Book an appointment to visit our state-of-the-art clinic and begin your dental wellness journey.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="contact.html" class="cta-action-card">
+            <span class="cta-slot-badge"><span class="pulse-dot"></span> Next Available Slot: Today</span>
+            <span class="cta-action-btn">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="facility.html">Our Facility</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    const galleryItems = Array.from(document.querySelectorAll('.bento-item'));
+    
+    let currentIndex = -1;
+
+    function openLightbox(index) {
+      if (index < 0 || index >= galleryItems.length) return;
+      currentIndex = index;
+      const card = galleryItems[currentIndex];
+      const img = card.querySelector('img');
+
+      lightboxImg.src = img.src;
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent scrolling behind
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function showNext() {
+      if (currentIndex === -1) return;
+      let nextIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox(nextIndex);
+    }
+
+    function showPrev() {
+      if (currentIndex === -1) return;
+      let prevIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(prevIndex);
+    }
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        openLightbox(index);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Close on click outside the image content
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+        closeLightbox();
+      }
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  });
+</script>
+</body>
+</html>

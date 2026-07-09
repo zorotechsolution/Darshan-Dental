@@ -307,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ── Auto-trigger Hero animations immediately on load ─────────────
-  document.querySelectorAll(".hero .reveal").forEach(el => {
+  document.querySelectorAll(".hero-new .reveal").forEach(el => {
     setTimeout(() => {
       el.classList.add("is-visible");
     }, 150);

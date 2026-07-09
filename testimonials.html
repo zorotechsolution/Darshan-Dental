@@ -3,17 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patient Testimonials | Best Dental Clinic in Kanyakumari — Darshan Dental</title>
-<meta name="description" content="Read real patient reviews of Darshan Dental & Orthodontic Clinic — voted the best dental clinic in Kanyakumari for implants, braces and root canal treatment.">
-<meta name="keywords" content="Best Dental Clinic in Kanyakumari Reviews, Best Dentist Kanyakumari Reviews, Darshan Dental Testimonials, Dental Tourism Kanyakumari Reviews">
+<title>Patient Testimonials & Reviews | Darshan Dental Clinic Kanyakumari</title>
+<meta name="description" content="Read reviews and testimonials from patients who received braces, implants, Invisalign, and dental tourism care at Darshan Dental in Kanyakumari.">
+<meta name="keywords" content="Best Dental Clinic Reviews Kanyakumari, Orthodontic Braces Testimonials, Dental Implant Reviews Nagercoil, Kanyakumari Dental Tourism Reviews">
 <link rel="icon" href="/Favicon.png" type="image/x-png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Interactive Reviews Dashboard ───────────────────────── */
+  .dashboard-section {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  .reviews-dashboard {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+  }
+  
+  /* Circular Progress ring rating */
+  .rating-circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    padding-right: 30px;
+  }
+  .rating-ring-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+  }
+  .rating-ring {
+    transform: rotate(-90deg);
+  }
+  .rating-ring-fg {
+    stroke-dasharray: 326.7;
+    stroke-dashoffset: 6.5; /* 4.9/5 ratio */
+    transition: stroke-dashoffset 1.5s ease-out;
+  }
+  .rating-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .rating-value h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--dark);
+    font-family: var(--font-head);
+  }
+  .rating-value span {
+    font-size: 0.75rem;
+    color: #6c757d;
+    font-weight: 600;
+  }
+  
+  /* Star analytics bars */
+  .stars-distribution {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .dist-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .dist-label {
+    width: 60px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .dist-bar-wrapper {
+    flex-grow: 1;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .dist-bar-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 4px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+  }
+  .dist-pct {
+    width: 35px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6c757d;
+    text-align: right;
+  }
+  
+  /* CTA right */
+  .dashboard-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+    border-left: 1px solid var(--border);
+  }
+  .dashboard-cta h4 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+  .dashboard-cta p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  .btn-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: var(--dark);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-decoration: none;
+  }
+  .btn-google:hover {
+    background: #f8f9fa;
+    border-color: #cdd4dc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    color: var(--dark);
+  }
+
+  @media (max-width: 991px) {
+    .reviews-dashboard {
+      padding: 30px;
+    }
+    .rating-circle-container {
+      border-right: none;
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
+    .dashboard-cta {
+      border-left: none;
+      padding-left: 0;
+      margin-top: 30px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  /* ── Interactive Category Filters ────────────────────────── */
+  .filter-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .filter-pill {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border);
+    color: var(--dark);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: var(--shadow-sm);
+  }
+  .filter-pill:hover {
+    background: #fff;
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateY(-2px);
+  }
+  .filter-pill.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 168, 81, 0.25);
+  }
+
+  /* ── Premium Testimonial Cards Layout ────────────────────── */
+  .testimonial-grid {
+    transition: all 0.5s ease-in-out;
+  }
+  .testi-card-wrapper {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .testi-card-wrapper.hidden {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  .testi-card-custom {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .testi-card-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 168, 81, 0.2);
+  }
+  .quote-icon-custom {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    font-size: 4rem;
+    font-family: Georgia, serif;
+    color: rgba(0, 168, 81, 0.08);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .tag-treatment {
+    display: inline-flex;
+    background: rgba(0, 168, 81, 0.06);
+    color: var(--green);
+    border: 1px solid rgba(0, 168, 81, 0.15);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  .testi-card-custom p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+  
+  /* User profile meta info */
+  .profile-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  .profile-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar-gradient {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 168, 81, 0.2);
+  }
+  .profile-name {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .profile-location {
+    font-size: 0.75rem;
+    color: #6c757d;
+    font-weight: 600;
+  }
+  
+  /* Interactive Helpful Button */
+  .helpful-btn {
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: #6c757d;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+  .helpful-btn svg {
+    transition: transform 0.2s ease;
+  }
+  .helpful-btn:hover {
+    background: #eefbee;
+    color: var(--green);
+    border-color: rgba(0, 168, 81, 0.25);
+  }
+  .helpful-btn:hover svg {
+    transform: translateY(-2px);
+  }
+  .helpful-btn.active {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+    box-shadow: 0 4px 12px rgba(0, 168, 81, 0.2);
+  }
+  .helpful-btn.active svg {
+    fill: currentColor;
+    transform: scale(1.1);
+  }
+</style>
 </head>
 <body>
 
+<!-- TOP STRIP -->
 <div class="top-strip d-none d-md-block">
   <div class="container d-flex justify-content-between align-items-center">
     <div>📍 South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</div>
@@ -21,12 +361,15 @@
   </div>
 </div>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-xl navbar-darshan">
   <div class="container">
     <a class="navbar-brand" href="index.html">
       <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -35,6 +378,7 @@
         <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
         <li class="nav-item"><a class="nav-link active" href="testimonials.html">Testimonials</a></li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="facility.html">Our Facility</a></li>
         <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
@@ -44,6 +388,7 @@
   </div>
 </nav>
 
+<!-- PAGE HEADER -->
 <div class="page-header">
   <div class="container">
     <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>Testimonials</div>
@@ -51,139 +396,281 @@
   </div>
 </div>
 
-<section class="section pt-5">
+<!-- SUMMARY DASHBOARD -->
+<section class="dashboard-section">
   <div class="container">
-    <div class="row g-4">
-
-      <!-- Testimonial 1 (Featured Card) -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card featured">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+    <div class="reviews-dashboard">
+      <div class="row align-items-center">
+        <!-- 4.9 Rating circle -->
+        <div class="col-lg-3 col-md-4">
+          <div class="rating-circle-container">
+            <div class="rating-ring-wrapper">
+              <svg class="rating-ring" width="120" height="120">
+                <circle cx="60" cy="60" r="52" fill="transparent" stroke="#f1f3f5" stroke-width="8"></circle>
+                <circle class="rating-ring-fg" cx="60" cy="60" r="52" fill="transparent" stroke="var(--green)" stroke-width="8" stroke-dasharray="326.7" stroke-dashoffset="6.5" stroke-linecap="round"></circle>
+              </svg>
+              <div class="rating-value">
+                <h3>4.9</h3>
+                <span>Out of 5</span>
+              </div>
             </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+            <div class="stars mb-1">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: #4a5568;">Based on 500+ Verified Patient Reviews</span>
+          </div>
+        </div>
+        
+        <!-- Bars -->
+        <div class="col-lg-5 col-md-8 mt-4 mt-md-0">
+          <div class="stars-distribution">
+            <div class="dist-row">
+              <span class="dist-label">5 stars</span>
+              <div class="dist-bar-wrapper">
+                <div class="dist-bar-fill" style="width: 98%;"></div>
+              </div>
+              <span class="dist-pct">98%</span>
+            </div>
+            <div class="dist-row">
+              <span class="dist-label">4 stars</span>
+              <div class="dist-bar-wrapper">
+                <div class="dist-bar-fill" style="width: 2%;"></div>
+              </div>
+              <span class="dist-pct">2%</span>
+            </div>
+            <div class="dist-row">
+              <span class="dist-label">3 stars</span>
+              <div class="dist-bar-wrapper">
+                <div class="dist-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="dist-pct">0%</span>
+            </div>
+            <div class="dist-row">
+              <span class="dist-label">2 stars</span>
+              <div class="dist-bar-wrapper">
+                <div class="dist-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="dist-pct">0%</span>
+            </div>
+            <div class="dist-row">
+              <span class="dist-label">1 star</span>
+              <div class="dist-bar-wrapper">
+                <div class="dist-bar-fill" style="width: 0%;"></div>
+              </div>
+              <span class="dist-pct">0%</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="col-lg-4 col-md-12 mt-4 mt-lg-0">
+          <div class="dashboard-cta">
+            <h4>Share Your Experience</h4>
+            <p>Your feedback helps us continue providing world-class Orthodontic &amp; Dental care to the Kanyakumari community.</p>
+            <a href="https://www.google.com/search?kgmid=/g/11bwp60nxl&amp;hl=en-IN&amp;q=Darshan+dental+clinic,Anjugramam&amp;shndl=30&amp;shem=lrnole,lsde,vslcea&amp;source=sh/x/loc/osrp/m5/1&amp;kgs=08ebae8993e42978" target="_blank" rel="noopener" class="btn-google">
+              <svg width="18" height="18" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22c-.62-.63-1.04-1.39-1.19-2.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              Write Review on Google
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filter-wrapper">
+      <button class="filter-pill active" data-filter="all">All Reviews</button>
+      <button class="filter-pill" data-filter="braces">Braces &amp; Invisalign</button>
+      <button class="filter-pill" data-filter="implants">Dental Implants</button>
+      <button class="filter-pill" data-filter="tourism">Dental Tourism</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS FEED -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="row g-4 testimonial-grid">
+
+      <!-- Testimonial 1 -->
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="tourism implants">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Dental Tourism &amp; Implants</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"The concept of dental tourism was new to me, and given my recurring problems I wanted to try it. Needless to say, Darshan Dental is the best dental clinic in Kanyakumari and has the best dental tourism packages Kanyakumari can offer. It was money well spent — under Dr. Tania's expert care my dental problems have been solved and I have got my smile back!"</p>
-          <div class="who"><div class="avatar">S</div><div><b>Shahid</b><span>Dubai</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">S</div>
+              <div>
+                <h5 class="profile-name">Shahid</h5>
+                <span class="profile-location">Dubai</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">24</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="braces">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Orthodontic Braces</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"If you are looking for the best teeth braces treatment Kanyakumari can offer, look no further. Darshan Dental clinic is the best place and I strongly recommend Dr. Tania to all my friends and family. She is professional and all the procedures are totally painless."</p>
-          <div class="who"><div class="avatar">E</div><div><b>Elizabeth</b><span>Kanyakumari</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">E</div>
+              <div>
+                <h5 class="profile-name">Elizabeth</h5>
+                <span class="profile-location">Kanyakumari</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">11</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="implants">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Dental Implants</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"Being treated by Dr. Tania for my dental implants was such a painless experience. She is definitely the best dentist in Kanyakumari."</p>
-          <div class="who"><div class="avatar">R</div><div><b>Ramesh</b><span>Kanyakumari</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">R</div>
+              <div>
+                <h5 class="profile-name">Ramesh</h5>
+                <span class="profile-location">Kanyakumari</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">8</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Testimonial 4 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="implants">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Dental Implants</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"Initially I was apprehensive about undertaking treatment for dental implants. A search in Google for the best dental clinic in Kanyakumari brought me here, and I am so glad I was treated by Dr. Tania and team. It was a pleasant dental experience overall."</p>
-          <div class="who"><div class="avatar">S</div><div><b>Sumitra</b><span>Nagerkoil</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">S</div>
+              <div>
+                <h5 class="profile-name">Sumitra</h5>
+                <span class="profile-location">Nagercoil</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">14</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Testimonial 5 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="braces">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Orthodontic Braces</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"I had crowded and forwardly arranged teeth for which I had braces treatment on my visit here. The results have far exceeded my expectations — my confidence has improved so much."</p>
-          <div class="who"><div class="avatar">A</div><div><b>Anitha</b><span>Nagercoil</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">A</div>
+              <div>
+                <h5 class="profile-name">Anitha</h5>
+                <span class="profile-location">Nagercoil</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">6</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Testimonial 6 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="testi-card">
-          <div class="quote-mark">“</div>
-          <div class="d-flex align-items-center mb-3">
-            <div class="stars">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-            </div>
-            <span class="verified-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="9" height="9"><polyline points="20 6 9 17 4 12"/></svg>
-              Verified
-            </span>
+      <div class="col-md-6 col-lg-4 testi-card-wrapper" data-categories="tourism">
+        <div class="testi-card-custom">
+          <div class="quote-icon-custom">“</div>
+          <span class="tag-treatment">Dental Tourism</span>
+          <div class="stars mb-3">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5A623"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
           <p>"I am settled in the Middle East. My home town is Kanyakumari, so whenever we have a dental problem we fly to India and finish our treatment from Darshan Dental — the best dental tourism experience we could ask for."</p>
-          <div class="who"><div class="avatar">J</div><div><b>Joice</b><span>Middle East</span></div></div>
+          <div class="profile-block">
+            <div class="profile-details">
+              <div class="avatar-gradient">J</div>
+              <div>
+                <h5 class="profile-name">Joice</h5>
+                <span class="profile-location">Middle East</span>
+              </div>
+            </div>
+            <button class="helpful-btn" onclick="toggleHelpful(this)">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              <span>Helpful (<span class="count">19</span>)</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -191,16 +678,28 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="section pt-0">
   <div class="container">
-    <div class="cta-band text-center">
-      <h2>Become Our Next Success Story</h2>
-      <p class="mb-4">Join thousands of happy patients who trust the best dental clinic in Kanyakumari.</p>
-      <a href="contact.html" class="btn-light-outline">Book Your Appointment</a>
+    <div class="cta-band">
+      <div class="row align-items-center text-start">
+        <div class="col-lg-8">
+          <span class="cta-badge">Join Our Happy Patients</span>
+          <h2>Become Our Next Success Story</h2>
+          <p class="mb-lg-0">Join thousands of happy patients who trust the best dental clinic in Kanyakumari.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="contact.html" class="cta-action-card">
+            <span class="cta-slot-badge"><span class="pulse-dot"></span> Next Available Slot: Today</span>
+            <span class="cta-action-btn">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
     <div class="row gy-4">
@@ -211,7 +710,7 @@
         <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
         <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
         <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1 22 16.92z"></path></svg></a>
       </div>
       <div class="col-lg-2 col-6">
         <h6>Explore</h6>
@@ -219,6 +718,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="treatments.html">Treatments</a></li>
           <li><a href="technology.html">Technology</a></li>
+          <li><a href="facility.html">Our Facility</a></li>
           <li><a href="gallery.html">Smile Gallery</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="tourism.html">Dental Tourism</a></li>
@@ -226,7 +726,12 @@
       </div>
       <div class="col-lg-3 col-6">
         <h6>Top Treatments</h6>
-        <ul><li><a href="treatments.html">Dental Implants Kanyakumari</a></li><li><a href="treatments.html">Root Canal Treatment</a></li><li><a href="treatments.html">Orthodontic Braces</a></li><li><a href="treatments.html">Invisalign Clear Aligners</a></li></ul>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="treatments.html">Invisalign Clear Aligners</a></li>
+        </ul>
       </div>
       <div class="col-lg-3">
         <h6>Contact</h6>
@@ -243,7 +748,49 @@
 </footer>
 
 <button id="backToTop" class="back-to-top">↑</button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+  // Dynamic Category Filtering
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.testi-card-wrapper');
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Toggle active class
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const filterValue = pill.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          const categories = card.getAttribute('data-categories').split(' ');
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+
+  // Helpful Button Toggle Counter
+  function toggleHelpful(button) {
+    const countSpan = button.querySelector('.count');
+    let count = parseInt(countSpan.textContent, 10);
+    
+    if (button.classList.contains('active')) {
+      button.classList.remove('active');
+      count--;
+    } else {
+      button.classList.add('active');
+      count++;
+    }
+    countSpan.textContent = count;
+  }
+</script>
 </body>
 </html>

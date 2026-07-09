@@ -245,6 +245,7 @@
         <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
         <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="facility.html">Our Facility</a></li>
         <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
@@ -254,40 +255,53 @@
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <div class="container">
-    <div class="breadcrumb-brand mb-2"><a href="index.html">Home</a><span>/</span>About Us</div>
-    <h1>About Darshan Dental &amp; Orthodontic Clinic</h1>
+<!-- PAGE HEADER (Editorial Style) -->
+<div class="page-header" style="padding: 30px 0 20px; background: var(--bg); position: relative; overflow: hidden;">
+  <div class="container position-relative z-1">
+    <div class="breadcrumb-brand mb-2" style="font-size: 0.85rem;"><a href="index.html">Home</a><span>/</span>About Us</div>
+    <h1 class="serif-heading" style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--dark); max-width: 800px; line-height: 1.2;">About Darshan Dental &amp; Orthodontic Clinic</h1>
   </div>
+  <!-- Abstract background element -->
+  <div style="position:absolute; top:-50%; right:-10%; width:600px; height:600px; background:radial-gradient(circle, rgba(26,122,76,0.05) 0%, rgba(255,255,255,0) 70%); border-radius:50%; z-index:0; pointer-events: none;"></div>
 </div>
 
 <!-- ============================================================
-     CLINIC INTRO
+     CLINIC INTRO (Magazine/Human Layout)
      ============================================================ -->
-<section class="section">
+<section class="section" style="padding-top: 40px; padding-bottom: 100px;">
   <div class="container">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-6 reveal from-left">
-        <img src="images/Dental-Excellence.png" class="about-intro-img w-100" alt="Best dental clinic in Kanyakumari - Darshan Dental interior">
+    <div class="row gy-5 align-items-center">
+      <!-- Images Collage -->
+      <div class="col-lg-6 position-relative">
+        <div class="reveal from-left" style="position: relative; z-index: 2; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+          <img src="images/Dental-Excellence.png" class="w-100" alt="Best dental clinic in Kanyakumari - Darshan Dental interior" style="object-fit: cover; height: 550px;">
+        </div>
+
+        <!-- Decorative Circle -->
+        <div class="reveal scale-in" style="position: absolute; top: 40px; left: -30px; width: 120px; height: 120px; background: var(--teal); border-radius: 50%; z-index: 1; opacity: 0.1; --delay: 0.4s;"></div>
       </div>
-      <div class="col-lg-6 reveal from-right">
-        <div class="eyebrow">Welcome to Darshan Dental</div>
-        <h2>The Region's Most Reputed &amp; Trusted Dental-Service Provider</h2>
-        <p class="text-muted mt-3">We are one of the most reputed and trusted dental-service providers in the Kanyakumari region, close to the Koodankulam Anuvijay township. As one of the <strong>best dentists in Nagercoil</strong>, we bring world-class dental expertise and facilities to Anjugramam and its surrounding communities.</p>
-        <p class="text-muted">Darshan Dental &amp; Orthodontic Clinic is located just 5 km from Koodankulam, making us one of the most accessible dental clinics in the wider Kanyakumari district.</p>
-        <a href="contact.html" class="btn-brand mt-3" style="display:inline-flex">Book a Consultation
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      
+      <!-- Text Content -->
+      <div class="col-lg-5 offset-lg-1 reveal from-right">
+        <div class="eyebrow" style="margin-left: 0;">Welcome to Darshan Dental</div>
+        <h2 class="serif-heading mb-4" style="font-size: 2.6rem; color: var(--dark); line-height: 1.2;">The Region's Most Reputed &amp; Trusted Dental-Service Provider</h2>
+        
+        <div style="border-left: 3px solid var(--teal); padding-left: 24px; margin-bottom: 28px;">
+          <p class="text-muted" style="font-size: 1.15rem; line-height: 1.7; margin: 0; font-style: italic;">We are one of the most reputed and trusted dental-service providers in the Kanyakumari region, close to the Koodankulam Anuvijay township.</p>
+        </div>
+        
+        <p class="text-muted mb-4" style="line-height: 1.8; font-size: 1.05rem;">As one of the <strong>best dentists in Nagercoil</strong>, we bring world-class dental expertise and facilities to Anjugramam and its surrounding communities. Darshan Dental &amp; Orthodontic Clinic is located just 5 km from Koodankulam, making us one of the most accessible dental clinics in the wider Kanyakumari district.</p>
+        
+        <a href="contact.html" class="btn-brand mt-2" style="display:inline-flex; padding: 14px 32px; border-radius: 100px;">Book a Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ms-2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-
-
 <!-- ============================================================
-     AREAS OF SPECIAL INTEREST
+     AREAS OF SPECIAL INTEREST — CIRCULAR LAYOUT
      ============================================================ -->
 <section class="about-interests-section">
   <div class="container">
@@ -298,77 +312,246 @@
       <p class="text-muted mt-2" style="max-width:580px;margin:0 auto">Dr. Tania brings specialised academic and clinical mastery in three key domains of modern orthodontics.</p>
     </div>
 
-    <div class="row g-4">
+    <div class="spec-orbit reveal">
 
-      <!-- 1: Orthodontics -->
-      <div class="col-lg-4 col-md-6 reveal" style="--delay:.0s">
-        <div class="interest-card">
-          <span class="int-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-            Speciality 01
-          </span>
-          <div class="interest-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <!-- Decorative dashed ring behind everything -->
+      <div class="spec-ring"></div>
+
+      <!-- TOP ROW: Node 1 centered -->
+      <div class="spec-row-top">
+        <div class="spec-node spec-node--top">
+          <div class="spec-bubble">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2C9 2 6.5 3.6 6.5 7c0 2.4.6 3.6 1 5.6.4 2.1.5 5.6 1.6 7.9.4.9 1.3 1 1.7.1.6-1.3.7-3.6 1.2-3.6s.6 2.3 1.2 3.6c.4.9 1.3.8 1.7-.1 1.1-2.3 1.2-5.8 1.6-7.9.4-2 1-3.2 1-5.6C17.5 3.6 15 2 12 2Z"/>
             </svg>
           </div>
-          <h4>Orthodontics</h4>
-          <p>Orthodontics is the diagnosis, prevention, and correction of malpositioned teeth and jaws. Dr. Tania offers a full spectrum of orthodontic solutions — from traditional metal braces and ceramic braces to lingual braces and Invisalign clear aligners — tailored individually to each patient's anatomy and lifestyle.</p>
-          <p style="margin-top:10px">Her gold-medal academic background and 13+ years of practice make her one of the most sought-after orthodontists in Kanyakumari and Nagercoil.</p>
+          <div class="spec-text spec-text--center">
+            <span class="spec-num">01</span>
+            <h4>Orthodontics</h4>
+            <p>Full spectrum of solutions — metal braces, ceramic braces, lingual braces, and Invisalign clear aligners. Tailored to each patient's anatomy with 13+ years of gold-medal expertise.</p>
+          </div>
         </div>
       </div>
 
-      <!-- 2: Micro Implant Anchorage -->
-      <div class="col-lg-4 col-md-6 reveal" style="--delay:.1s">
-        <div class="interest-card">
-          <span class="int-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-            Speciality 02
-          </span>
-          <div class="interest-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <!-- BOTTOM ROW: Node 2 | Center Circle | Node 3 -->
+      <div class="spec-row-bottom">
+
+        <!-- Node 2: left -->
+        <div class="spec-node spec-node--left">
+          <div class="spec-text spec-text--right">
+            <span class="spec-num">02</span>
+            <h4>Micro Implant Anchorage</h4>
+            <p>TADs — tiny titanium screws that provide a stable anchor point for complex tooth movements, achieving superior outcomes without surgery in many cases.</p>
+          </div>
+          <div class="spec-bubble">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <line x1="12" y1="2" x2="12" y2="22"/>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
           </div>
-          <h4>Micro Implant Anchorage in Orthodontics</h4>
-          <p>Temporary Anchorage Devices (TADs), or micro-implants, are tiny titanium screws placed in the jawbone to provide an absolute and stable anchor point during orthodontic tooth movement. This allows complex tooth movements that were previously impossible with conventional braces alone.</p>
-          <p style="margin-top:10px">Dr. Tania's expertise in TAD-supported treatment means patients achieve superior outcomes — including vertical control, space closure and bite correction — without the need for surgery in many cases.</p>
         </div>
-      </div>
 
-      <!-- 3: Management of Skeletal Malocclusion -->
-      <div class="col-lg-4 col-md-6 reveal" style="--delay:.2s">
-        <div class="interest-card">
-          <span class="int-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
-            Speciality 03
-          </span>
-          <div class="interest-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <!-- Center circle -->
+        <div class="spec-center">
+          <img src="images/Dr Tania.png" alt="Dr. Tania Niranjan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;">
+        </div>
+
+        <!-- Node 3: right -->
+        <div class="spec-node spec-node--right">
+          <div class="spec-bubble">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6L12 2Z"/>
               <polyline points="9 12 11 14 15 10"/>
             </svg>
           </div>
-          <h4>Management of Skeletal Malocclusion</h4>
-          <p>Skeletal malocclusion refers to jaw discrepancies — such as an underbite, overbite, or crossbite — caused by abnormal bone development rather than tooth position alone. These cases require carefully planned, multi-disciplinary management.</p>
-          <p style="margin-top:10px">Dr. Tania employs advanced diagnostic tools including CBCT 3D imaging, cephalometric analysis, and OPG to precisely assess jaw relationships. Treatment may involve functional appliances during growth, orthodontic camouflage, or coordinated surgical-orthodontic planning for adult patients — delivering harmonious facial aesthetics and optimal function.</p>
+          <div class="spec-text spec-text--left">
+            <span class="spec-num">03</span>
+            <h4>Skeletal Malocclusion</h4>
+            <p>Jaw discrepancies like underbites, overbites and crossbites managed using CBCT 3D imaging, cephalometric analysis, and OPG for precision diagnosis and treatment.</p>
+          </div>
         </div>
-      </div>
 
-    </div>
+      </div><!-- /bottom row -->
+
+    </div><!-- /spec-orbit -->
+
   </div>
 </section>
+
+<style>
+/* ── Circular Specialty Orbit (flex-based, no overlap) ── */
+.spec-orbit {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Decorative dashed ring — purely visual, sits behind */
+.spec-ring {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1.5px dashed rgba(26,122,76,0.18);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top row: just the centered node */
+.spec-row-top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+/* Bottom row: left node | center circle | right node */
+.spec-row-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 20px;
+}
+
+/* Generic node flex wrapper */
+.spec-node {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+.spec-node--top {
+  flex-direction: column;
+  align-items: center;
+  max-width: 260px;
+}
+.spec-node--left {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.spec-node--right {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Circular bubble icon */
+.spec-bubble {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(26,122,76,0.18);
+  box-shadow: 0 6px 24px rgba(26,122,76,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.spec-node:hover .spec-bubble {
+  background: var(--green);
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 10px 32px rgba(26,122,76,0.28);
+}
+.spec-node:hover .spec-bubble svg { stroke: #fff; }
+
+/* Center circle */
+.spec-center {
+  width: 108px;
+  height: 108px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 12px 40px rgba(26,122,76,0.28);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Text blocks */
+.spec-text { max-width: 220px; }
+.spec-text--center { text-align: center; }
+.spec-text--right { text-align: right; }
+.spec-text--left { text-align: left; }
+
+.spec-num {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.spec-text h4 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.spec-text p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .spec-ring { display: none; }
+  .spec-center { display: none; }
+  .spec-row-top { margin-bottom: 0; }
+  .spec-row-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding-bottom: 0;
+  }
+  .spec-node--top,
+  .spec-node--left,
+  .spec-node--right {
+    flex-direction: row !important;
+    max-width: 100%;
+    justify-content: flex-start !important;
+  }
+  .spec-text--center,
+  .spec-text--right { text-align: left; }
+}
+</style>
+
+
+
 
 
 
 <!-- CTA -->
 <section class="section">
   <div class="container">
-    <div class="cta-band text-center reveal">
-      <h2>Experience the Best Dental Care in Kanyakumari</h2>
-      <p class="mb-4">Schedule your consultation with our expert team at Anjugramam today.</p>
-      <a href="contact.html" class="btn-light-outline">Book Your Appointment</a>
+    <div class="cta-band reveal">
+      <div class="row align-items-center text-start">
+        <div class="col-lg-8">
+          <span class="cta-badge">Kanyakumari's Top Dental Clinic</span>
+          <h2>Experience the Best Dental Care in Kanyakumari</h2>
+          <p class="mb-lg-0">Schedule your consultation with our expert team at Anjugramam today.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="contact.html" class="cta-action-card">
+            <span class="cta-slot-badge"><span class="pulse-dot"></span> Next Available Slot: Today</span>
+            <span class="cta-action-btn">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -392,6 +575,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="treatments.html">Treatments</a></li>
           <li><a href="technology.html">Technology</a></li>
+          <li><a href="facility.html">Our Facility</a></li>
           <li><a href="gallery.html">Smile Gallery</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="tourism.html">Dental Tourism</a></li>

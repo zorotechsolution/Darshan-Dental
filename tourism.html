@@ -28,67 +28,93 @@
     box-shadow: 0 28px 72px rgba(26,122,76,.18);
   }
 
+  /* ── Redesigned Attractions Cards ── */
   .attractions-section {
     background: var(--bg);
     padding: 80px 0;
   }
 
-  .spot-card {
-    background: #fff;
-    border: 1.5px solid var(--border);
-    border-radius: 20px;
-    padding: 36px 30px;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+  .spot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
-  .spot-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--teal), var(--green));
-    border-radius: 4px 0 0 4px;
-    transition: width .3s ease;
+
+  .spot-card {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 36px 36px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .spot-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(17,24,39,0.10);
+  }
+
+  /* Big background number */
+  .spot-card .spot-num {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 7rem;
+    line-height: 1;
+    color: rgba(17,24,39,0.05);
+    pointer-events: none;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+  .spot-card:hover .spot-num {
+    color: rgba(26,122,76,0.06);
+  }
+
+  /* Accent top bar */
+  .spot-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+    border-radius: 24px 24px 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
   }
   .spot-card:hover::before {
-    width: 6px;
+    transform: scaleX(1);
   }
 
   .spot-icon {
-    width: 58px; height: 58px;
-    border-radius: 16px;
-    background: var(--teal-light);
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--green-light);
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 20px;
-    transition: background .3s ease, transform .3s ease;
   }
-  .spot-card:hover .spot-icon {
-    background: var(--teal-dark);
-    transform: scale(1.08) rotate(-4deg);
-  }
-  .spot-icon svg { width: 26px; height: 26px; stroke: var(--teal-dark); transition: stroke .3s ease; }
-  .spot-card:hover .spot-icon svg { stroke: #fff; }
+  .spot-icon svg { width: 24px; height: 24px; stroke: var(--green); }
 
   .spot-card h4 {
     font-family: var(--font-head);
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--dark);
     margin-bottom: 12px;
+    line-height: 1.25;
   }
   .spot-card p {
-    font-size: .88rem;
+    font-size: 0.92rem;
     color: var(--text-light);
-    line-height: 1.75;
+    line-height: 1.8;
     margin: 0;
+  }
+
+  @media (max-width: 767px) {
+    .spot-grid { grid-template-columns: 1fr; }
+    .spot-card { padding: 30px 24px; }
   }
 
   .packages-section {
@@ -160,6 +186,7 @@
         <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
         <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="facility.html">Our Facility</a></li>
         <li class="nav-item"><a class="nav-link active" href="tourism.html">Dental Tourism</a></li>
         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
@@ -225,62 +252,66 @@
       <p class="text-muted mt-2" style="max-width:650px;margin:0 auto">Kanyakumari is located at the southernmost tip of India, where the Arabian Sea, the Bay of Bengal, and the Indian Ocean meet. It is filled with varied and interesting tourist attractions.</p>
     </div>
 
-    <div class="row g-4">
+    <div class="spot-grid">
+
       <!-- Spot 1 -->
-      <div class="col-md-6 col-lg-3 reveal" style="--delay: 0s">
-        <div class="spot-card">
-          <div class="spot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <h4>Iconic Memorials &amp; Statues</h4>
-          <p>Visit the majestic Vivekananda Rock Memorial and the 133-foot Thiruvalluvar Statue standing in the sea, the Gandhi Memorial Mandapam, and the Kamarajar Mani Mantapa monument.</p>
+      <div class="spot-card reveal" style="--delay:0s">
+        <span class="spot-num">01</span>
+        <div class="spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
         </div>
+        <h4>Iconic Memorials &amp; Statues</h4>
+        <p>Visit the majestic Vivekananda Rock Memorial and the 133-foot Thiruvalluvar Statue standing in the sea, the Gandhi Memorial Mandapam, and the Kamarajar Mani Mantapa monument.</p>
       </div>
 
       <!-- Spot 2 -->
-      <div class="col-md-6 col-lg-3 reveal" style="--delay: 0.1s">
-        <div class="spot-card">
-          <div class="spot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h4>Historic Heritage &amp; Forts</h4>
-          <p>Explore the historic Bhagavathy Amman Temple, the ancient Padmanabhapuram Wooden Palace (an architectural wonder), and the scenic Vattakottai seaside fort.</p>
+      <div class="spot-card reveal" style="--delay:0.1s">
+        <span class="spot-num">02</span>
+        <div class="spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
         </div>
+        <h4>Historic Heritage &amp; Forts</h4>
+        <p>Explore the historic Bhagavathy Amman Temple, the ancient Padmanabhapuram Wooden Palace (an architectural wonder), and the scenic Vattakottai seaside fort.</p>
       </div>
 
       <!-- Spot 3 -->
-      <div class="col-md-6 col-lg-3 reveal" style="--delay: 0.2s">
-        <div class="spot-card">
-          <div class="spot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 22z"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <h4>Nature &amp; Waterfalls</h4>
-          <p>Take in the natural beauty of Muttom Beach with its famous lighthouse, Pechiparai Dam, Tirparappu Waterfalls, the therapeutic Maruthuvamalai hills, and Mukkadal reservoir.</p>
+      <div class="spot-card reveal" style="--delay:0.2s">
+        <span class="spot-num">03</span>
+        <div class="spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 22z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
         </div>
+        <h4>Nature &amp; Waterfalls</h4>
+        <p>Take in the natural beauty of Muttom Beach with its famous lighthouse, Pechiparai Dam, Tirparappu Waterfalls, the therapeutic Maruthuvamalai hills, and Mukkadal reservoir.</p>
       </div>
 
       <!-- Spot 4 -->
-      <div class="col-md-6 col-lg-3 reveal" style="--delay: 0.3s">
-        <div class="spot-card">
-          <div class="spot-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              <path d="M2 12h20"/>
-            </svg>
-          </div>
-          <h4>Sunrise &amp; Sunset Wonders</h4>
-          <p>Kanyakumari is world-famous for its spectacular sunrise and sunset. On full-moon evenings (Chitra Pournami), you can witness the moon-rise and sunset simultaneously over the ocean.</p>
+      <div class="spot-card reveal" style="--delay:0.3s">
+        <span class="spot-num">04</span>
+        <div class="spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
         </div>
+        <h4>Sunrise &amp; Sunset Wonders</h4>
+        <p>Kanyakumari is world-famous for its spectacular sunrise and sunset. On full-moon evenings (Chitra Pournami), you can witness the moon-rise and sunset simultaneously over the ocean.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -339,10 +370,20 @@
 <!-- CTA -->
 <section class="section">
   <div class="container">
-    <div class="cta-band text-center reveal">
-      <h2>Plan Your Dental Vacation Today</h2>
-      <p class="mb-4">Get in touch with us to design a customized dental tourism package that fits your healthcare needs and travel preferences.</p>
-      <a href="contact.html" class="btn-light-outline">Request Custom Quote</a>
+    <div class="cta-band reveal">
+      <div class="row align-items-center text-start">
+        <div class="col-lg-8">
+          <span class="cta-badge">International Patient Desk</span>
+          <h2>Plan Your Dental Vacation Today</h2>
+          <p class="mb-lg-0">Get in touch with us to design a customized dental tourism package that fits your healthcare needs and travel preferences.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="contact.html" class="cta-action-card">
+            <span class="cta-slot-badge"><span class="pulse-dot"></span> Next Available Slot: Today</span>
+            <span class="cta-action-btn">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -366,6 +407,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="treatments.html">Treatments</a></li>
           <li><a href="technology.html">Technology</a></li>
+          <li><a href="facility.html">Our Facility</a></li>
           <li><a href="gallery.html">Smile Gallery</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="tourism.html">Dental Tourism</a></li>
