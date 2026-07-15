@@ -386,4 +386,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Founder Biography show/hide toggle
+  const toggleBtn = document.getElementById("toggleBioBtn");
+  const bioExpanded = document.getElementById("founderBioExpanded");
+  if (toggleBtn && bioExpanded) {
+    toggleBtn.addEventListener("click", function() {
+      const isCollapsed = !bioExpanded.classList.contains("show");
+      if (isCollapsed) {
+        bioExpanded.classList.add("show");
+        toggleBtn.querySelector(".btn-text").textContent = "Show Less";
+        toggleBtn.querySelector(".toggle-icon").style.transform = "rotate(180deg)";
+      } else {
+        bioExpanded.classList.remove("show");
+        toggleBtn.querySelector(".btn-text").textContent = "Read Full Biography";
+        toggleBtn.querySelector(".toggle-icon").style.transform = "rotate(0deg)";
+        // Scroll back to founder section top smoothly if collapsed
+        document.querySelector(".founder-section").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // Hero Doctors list selection toggle
+  const docItems = document.querySelectorAll(".doc-list .doc-item");
+  docItems.forEach(item => {
+    item.addEventListener("click", () => {
+      docItems.forEach(i => i.classList.remove("selected"));
+      item.classList.add("selected");
+    });
+  });
+
 });
