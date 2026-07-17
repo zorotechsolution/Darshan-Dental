@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DarshAligners — In-House Clear Aligners Kanyakumari | Darshan Dental</title>
+<meta name="description" content="DarshAligners — precision clear aligners designed and manufactured in-house at Darshan Dental Kanyakumari. Orthodontist-led, digitally planned, and affordable.">
+<meta name="keywords" content="DarshAligners, Clear Aligners Kanyakumari, In-house Aligners Nagercoil, Affordable Clear Aligners, Orthodontist Kanyakumari, Darshan Dental Aligners">
+<link rel="icon" href="/Favicon.png" type="image/x-png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── DarshAligners Page Styles ─────────────────────────── */
+
+/* Hero */
+.da-hero {
+  position: relative;
+  background: var(--dark);
+  overflow: hidden;
+  padding: 100px 0 80px;
+}
+.da-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(0,168,81,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 0% 80%, rgba(8,131,191,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.da-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.da-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,168,81,0.15);
+  border: 1px solid rgba(0,168,81,0.35);
+  color: var(--green-mid);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.da-brand-badge span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green-mid);
+  display: inline-block;
+}
+.da-hero-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.da-hero-title em {
+  font-style: normal;
+  color: var(--green-mid);
+}
+.da-tagline {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+}
+.da-hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 40px;
+}
+.da-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.da-hero-image {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+.da-hero-image img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center;
+}
+.da-image-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(17,24,39,0.9);
+  border: 1px solid rgba(0,168,81,0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 14px 20px;
+  color: #fff;
+}
+.da-image-badge strong {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: block;
+  color: #fff;
+}
+.da-image-badge span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Section headings */
+.da-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-light);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.da-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.da-section-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.da-section-lead {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+/* Intro / about blurb */
+.da-intro-block {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+  border-radius: 0 16px 16px 0;
+  padding: 28px 32px;
+  font-size: 1.02rem;
+  color: var(--dark);
+  line-height: 1.8;
+}
+
+/* Why Choose — icon feature cards */
+.da-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.da-why-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: transform 0.28s cubic-bezier(.22,1,.36,1), box-shadow 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+.da-why-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--teal));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.da-why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(17,24,39,0.10);
+}
+.da-why-card:hover::before {
+  transform: scaleX(1);
+}
+.da-why-icon {
+  width: 52px; height: 52px;
+  background: var(--green-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--green);
+}
+.da-why-title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.da-why-desc {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* What it corrects */
+.da-correct-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.da-correct-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 22px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.da-correct-item:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 16px rgba(0,168,81,0.08);
+}
+.da-correct-check {
+  width: 28px; height: 28px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.da-correct-check svg {
+  color: #fff;
+}
+.da-correct-label {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--dark);
+}
+
+/* Journey timeline */
+.da-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  position: relative;
+}
+.da-journey-step {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.da-journey-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(17,24,39,0.08);
+}
+.da-step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(17,24,39,0.2);
+  position: relative;
+}
+.da-step-num::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.da-journey-step:hover .da-step-num::after {
+  opacity: 1;
+}
+.da-step-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Dark CTA strip */
+.da-cta-strip {
+  background: var(--dark);
+  border-radius: 24px;
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.da-cta-strip::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,168,81,0.2), transparent 70%);
+}
+.da-cta-strip::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8,131,191,0.15), transparent 70%);
+}
+.da-cta-strip h2 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.da-cta-strip p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+.da-cta-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--green-mid);
+  font-family: var(--font-head);
+  font-weight: 600;
+  border-left: 3px solid var(--green);
+  padding-left: 20px;
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .da-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .da-journey-grid { grid-template-columns: repeat(2, 1fr); }
+  .da-hero { padding: 70px 0 60px; }
+}
+@media (max-width: 575px) {
+  .da-why-grid { grid-template-columns: 1fr; }
+  .da-journey-grid { grid-template-columns: 1fr; }
+  .da-correct-grid { grid-template-columns: 1fr; }
+  .da-cta-strip { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-darshan">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Darshan Dental Clinic" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="doctors.html">Our Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link active" href="darshaligners.html">DarshAligners</a></li>
+        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="facility.html">Our Facility</a></li>
+        <li class="nav-item"><a class="nav-link" href="tourism.html">Dental Tourism</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item nav-cta"><a class="btn-brand" href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="da-hero">
+  <div class="da-hero-bg"></div>
+  <div class="da-hero-grid"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+      <!-- Left -->
+      <div class="col-lg-6 reveal from-left">
+        <div class="da-brand-badge"><span></span>By Darshan Dental &amp; Orthodontic Clinic</div>
+        <h1 class="da-hero-title">Darsh<em>Aligners</em></h1>
+        <p class="da-tagline">Precision. Comfort. Confidence.</p>
+        <p class="da-hero-desc">Designed and manufactured in-house at Darshan Dental &amp; Orthodontic Clinic, DarshAligners combine advanced digital technology with specialist orthodontic expertise — delivering precise, comfortable, and predictable tooth movement at an affordable cost.</p>
+        <div class="da-hero-btns">
+          <a href="contact.html" class="btn-brand">Book a Consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#why-choose" class="btn-outline-brand" style="border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.85);">Learn More</a>
+        </div>
+      </div>
+      <!-- Right -->
+      <div class="col-lg-6 reveal from-right" style="--delay:.1s">
+        <div class="da-hero-image">
+          <img src="images/Invisalign.png" alt="DarshAligners — In-house Clear Aligners Kanyakumari">
+          <div class="da-image-badge">
+            <strong>100% In-House Manufacturing</strong>
+            <span>From scan to smile — all under one roof</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / INTRO
+     ============================================================ -->
+<section class="section pt-5" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal from-left">
+        <div class="da-eyebrow">What Are DarshAligners?</div>
+        <h2 class="da-section-title">Your Smile, Personally Crafted</h2>
+        <p class="da-section-lead mb-4">Unlike generic aligner systems, every DarshAligners treatment begins with a thorough clinical evaluation and is individually planned from start to finish — no shortcuts, no one-size-fits-all approaches.</p>
+        <div class="da-intro-block">
+          From digital scanning and 3D treatment planning to the in-house fabrication of your custom aligners, every step is carefully monitored by a specialist orthodontist to ensure optimal results and the highest standards of quality.
+        </div>
+      </div>
+      <div class="col-lg-7 reveal from-right" style="--delay:.1s">
+        <div class="row g-3">
+          <div class="col-6">
+            <div style="background: var(--green-light); border-radius: 20px; padding: 32px 28px; height: 100%;">
+              <div style="font-family: var(--font-head); font-size: 2.8rem; font-weight: 800; color: var(--green); line-height: 1;">100%</div>
+              <div style="font-family: var(--font-head); font-weight: 700; color: var(--dark); margin-top: 8px;">In-House Made</div>
+              <p style="font-size: 0.88rem; color: var(--text-light); margin-top: 6px; margin-bottom: 0;">Fabricated right here at Darshan Dental Clinic</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--dark); border-radius: 20px; padding: 32px 28px; height: 100%;">
+              <div style="font-family: var(--font-head); font-size: 2.8rem; font-weight: 800; color: var(--green-mid); line-height: 1;">3D</div>
+              <div style="font-family: var(--font-head); font-weight: 700; color: #fff; margin-top: 8px;">Digital Planning</div>
+              <p style="font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-top: 6px; margin-bottom: 0;">Advanced scan-to-aligner digital workflow</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div style="background: #fff; border: 1.5px solid var(--border); border-radius: 20px; padding: 28px; display: flex; align-items: center; gap: 24px;">
+              <div style="width: 56px; height: 56px; background: var(--teal-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--teal);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div>
+                <div style="font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; color: var(--dark);">Orthodontist-Supervised, Always</div>
+                <p style="font-size: 0.88rem; color: var(--text-light); margin-bottom: 0; margin-top: 4px;">Every case planned and monitored by Dr. Millingtania, MDS — Chief Orthodontist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE
+     ============================================================ -->
+<section class="section bg-tint" id="why-choose">
+  <div class="container">
+    <div class="text-center mb-2 reveal">
+      <div class="da-eyebrow mx-auto">Why DarshAligners?</div>
+      <h2 class="da-section-title">Six Reasons to Choose DarshAligners</h2>
+      <p class="da-section-lead mx-auto text-center">Every detail is designed with your comfort, confidence, and long-term oral health in mind.</p>
+    </div>
+    <div class="da-why-grid reveal" style="--delay:.1s">
+      <!-- 1 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="da-why-title">Customized for You</div>
+        <p class="da-why-desc">Every aligner is individually designed to match your unique dental anatomy and personal treatment goals — no generic templates.</p>
+      </div>
+      <!-- 2 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="da-why-title">Orthodontist-Led Treatment</div>
+        <p class="da-why-desc">Your smile is planned and supervised throughout by a qualified MDS Orthodontic Specialist — not delegated or automated.</p>
+      </div>
+      <!-- 3 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+        </div>
+        <div class="da-why-title">Advanced Digital Technology</div>
+        <p class="da-why-desc">Digital intraoral scanning and 3D treatment planning provide highly precise, predictable tooth movement at every stage.</p>
+      </div>
+      <!-- 4 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="da-why-title">Comfortable &amp; Nearly Invisible</div>
+        <p class="da-why-desc">Clear, smooth aligners fit comfortably over your teeth and blend naturally — so naturally, no one will know you're wearing them.</p>
+      </div>
+      <!-- 5 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="da-why-title">Removable for Convenience</div>
+        <p class="da-why-desc">Eat your favourite foods, brush, and floss freely — just remove your aligners. No dietary restrictions, no wire-cleaning frustrations.</p>
+      </div>
+      <!-- 6 -->
+      <div class="da-why-card">
+        <div class="da-why-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="da-why-title">Affordable Excellence</div>
+        <p class="da-why-desc">Premium orthodontic care at a fraction of international brand prices — with zero compromise on quality, precision, or results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT CAN IT CORRECT
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal from-left">
+        <div class="da-eyebrow">Conditions Treated</div>
+        <h2 class="da-section-title">What Can DarshAligners Correct?</h2>
+        <p class="da-section-lead mb-4">DarshAligners are suitable for a wide range of orthodontic concerns. Every case is individually assessed to determine if clear aligner therapy is the optimal treatment path.</p>
+        <div class="da-correct-grid">
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Crowded Teeth</span>
+          </div>
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Gaps Between Teeth</span>
+          </div>
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Protruding Teeth</span>
+          </div>
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Mild to Moderate Bite Issues</span>
+          </div>
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Post-Treatment Relapse</span>
+          </div>
+          <div class="da-correct-item">
+            <div class="da-correct-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="da-correct-label">Spacing &amp; Alignment Issues</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal from-right" style="--delay:.1s">
+        <div style="position: relative;">
+          <img src="images/Orthodontic Braces.png" alt="DarshAligners corrections" style="width:100%; border-radius: 24px; box-shadow: 0 20px 60px rgba(17,24,39,0.10);">
+          <div style="position: absolute; top: -20px; right: -20px; background: var(--green); color: #fff; border-radius: 16px; padding: 20px 24px; box-shadow: 0 10px 30px rgba(0,168,81,0.35);">
+            <div style="font-family: var(--font-head); font-weight: 800; font-size: 1.8rem; line-height: 1;">95%</div>
+            <div style="font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; opacity: 0.9;">Patient Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     JOURNEY STEPS
+     ============================================================ -->
+<section class="section bg-tint">
+  <div class="container">
+    <div class="text-center mb-2 reveal">
+      <div class="da-eyebrow mx-auto">The Process</div>
+      <h2 class="da-section-title">Your Journey with DarshAligners</h2>
+      <p class="da-section-lead mx-auto text-center">A simple, transparent 6-step process from your first consultation to your final confident smile.</p>
+    </div>
+    <div class="da-journey-grid reveal" style="--delay:.1s">
+      <div class="da-journey-step">
+        <div class="da-step-num">01</div>
+        <div class="da-step-title">Comprehensive Orthodontic Consultation</div>
+      </div>
+      <div class="da-journey-step">
+        <div class="da-step-num">02</div>
+        <div class="da-step-title">Digital Smile Scan &amp; Clinical Records</div>
+      </div>
+      <div class="da-journey-step">
+        <div class="da-step-num">03</div>
+        <div class="da-step-title">Personalized 3D Treatment Planning</div>
+      </div>
+      <div class="da-journey-step">
+        <div class="da-step-num">04</div>
+        <div class="da-step-title">Fabrication of Custom DarshAligners</div>
+      </div>
+      <div class="da-journey-step">
+        <div class="da-step-num">05</div>
+        <div class="da-step-title">Regular Progress Reviews</div>
+      </div>
+      <div class="da-journey-step" style="background: var(--dark); border-color: var(--dark);">
+        <div class="da-step-num" style="background: var(--green); box-shadow: 0 8px 24px rgba(0,168,81,0.4);">06</div>
+        <div class="da-step-title" style="color: #fff;">A Confident, Beautifully Aligned Smile</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HEALTH BENEFITS
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal from-left">
+        <div class="da-eyebrow">Beyond Aesthetics</div>
+        <h2 class="da-section-title">More Than Straight Teeth</h2>
+        <p style="font-size:1.02rem; color:var(--text); line-height:1.8; margin-bottom: 24px;">Orthodontic treatment is about more than aesthetics. Properly aligned teeth are easier to clean, contribute to healthier gums, improve bite function, and enhance your long-term oral health.</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
+          <li style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:7px;"></div>
+            <span style="color:var(--dark); font-size:0.97rem;">Easier to clean — less plaque build-up and gum disease risk</span>
+          </li>
+          <li style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:7px;"></div>
+            <span style="color:var(--dark); font-size:0.97rem;">Improved bite function — reduces jaw strain and headaches</span>
+          </li>
+          <li style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:7px;"></div>
+            <span style="color:var(--dark); font-size:0.97rem;">Enhanced long-term oral health and tooth longevity</span>
+          </li>
+          <li style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:7px;"></div>
+            <span style="color:var(--dark); font-size:0.97rem;">Greater self-confidence and a healthier, functional bite</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-7 reveal from-right" style="--delay:.1s">
+        <div style="background: var(--dark); border-radius: 24px; padding: 48px 44px;">
+          <div style="color: rgba(255,255,255,0.5); font-family: var(--font-head); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px;">The DarshAligners Difference</div>
+          <h3 style="font-family: var(--font-head); font-weight: 800; font-size: 1.8rem; color: #fff; margin-bottom: 20px; line-height: 1.25;">Specialist expertise meets in-house precision.</h3>
+          <p style="color: rgba(255,255,255,0.65); line-height: 1.8; font-size: 1rem; margin-bottom: 28px;">With the perfect combination of specialist orthodontic expertise, advanced digital technology, and in-house precision manufacturing, DarshAligners delivers a modern, comfortable, and effective solution for achieving the smile you've always wanted.</p>
+          <div style="border-left: 3px solid var(--green); padding-left: 20px;">
+            <p style="font-style: italic; font-size: 1.05rem; color: var(--green-mid); font-family: var(--font-head); font-weight: 600; line-height: 1.7; margin: 0;">"Begin your smile transformation with DarshAligners — where every aligner is crafted with precision, every treatment is personalized, and every smile tells a story of confidence."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="section pt-0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="row align-items-center text-start">
+        <div class="col-lg-8">
+          <span class="cta-badge">Begin Your Smile Transformation</span>
+          <h2>Ready for Your DarshAligners Journey?</h2>
+          <p class="mb-lg-0">Book a consultation with our specialist orthodontist today. We'll assess your case, discuss your goals, and design a personalized plan just for you.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="contact.html" class="cta-action-card">
+            <span class="cta-slot-badge"><span class="pulse-dot"></span> Next Available Slot: Today</span>
+            <span class="cta-action-btn">Book Appointment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-inline-flex mb-3" href="index.html">
+          <img src="images/logo.png" alt="Darshan Dental Clinic" class="footer-logo">
+        </a>
+        <p>The best dental clinic in Kanyakumari — delivering world-class orthodontic and dental care to Anjugramam, Nagercoil &amp; beyond.</p>
+        <a href="https://www.facebook.com/darshan.dental.50" class="social-round" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/darshan.dental.50?igsh=bmlhaGJtMXkyZTBy" class="social-round" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="tel:+919659163699" class="social-round" aria-label="Call Us"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="doctors.html">Our Doctors</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="darshaligners.html">DarshAligners</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="facility.html">Our Facility</a></li>
+          <li><a href="gallery.html">Smile Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tourism.html">Dental Tourism</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6>Top Treatments</h6>
+        <ul>
+          <li><a href="treatments.html">Dental Implants Kanyakumari</a></li>
+          <li><a href="treatments.html">Root Canal Treatment</a></li>
+          <li><a href="treatments.html">Orthodontic Braces</a></li>
+          <li><a href="darshaligners.html">DarshAligners</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <div class="foot-contact">📍 <span>South Bazaar, Anjugramam &amp; Post, Kanyakumari - 629401</span></div>
+        <div class="foot-contact">📱 <a href="tel:+919659163699">+91 96591 63699</a></div>
+        <div class="foot-contact">✉ <a href="mailto:info@darshandental.com">info@darshandental.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Darshan Dental &amp; Orthodontic Clinic. All rights reserved.</span>
+      <span>Best Dental Clinic in Kanyakumari · Nagercoil · Anjugramam</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

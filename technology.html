@@ -17,7 +17,7 @@
   /* Tab Nav Grid */
   .tech-nav-pills {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
   }
   .tech-nav-pills .nav-item {
@@ -219,7 +219,7 @@
 
   /* ── Responsive breaks ────────────────────────────────── */
   @media(max-width:991px) {
-    .tech-nav-pills { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .tech-nav-pills { grid-template-columns: repeat(2, 1fr); gap: 8px; }
     .tech-tab-content { padding: 30px; }
   }
   @media(max-width:575px) {
@@ -247,6 +247,7 @@
         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="doctors.html">Our Doctors</a></li>
         <li class="nav-item"><a class="nav-link" href="treatments.html">Treatments</a></li>
+        <li class="nav-item"><a class="nav-link" href="darshaligners.html">DarshAligners</a></li>
         <li class="nav-item"><a class="nav-link active" href="technology.html">Technology</a></li>
         <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Smile Gallery</a></li>
@@ -282,22 +283,28 @@
     <!-- Custom Tech Grid Pills -->
     <ul class="nav tech-nav-pills justify-content-center reveal" id="techTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#t1" type="button" role="tab">Intra-oral Camera</button>
+        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#t1" type="button" role="tab">Laser Unit</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t2" type="button" role="tab">RVG Digital X-ray</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t2" type="button" role="tab">Thermoforming Machine</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t3" type="button" role="tab">Rotary Endodontics</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t3" type="button" role="tab">3D Printer</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t4" type="button" role="tab">OPG X-Ray</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t4" type="button" role="tab">CBCT Scanner</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t5" type="button" role="tab">Cephalostat</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t5" type="button" role="tab">iTero Scanner</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t6" type="button" role="tab">Intraoral Scanning</button>
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t6" type="button" role="tab">Intra-oral Camera</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t7" type="button" role="tab">RVG Digital X-ray</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#t8" type="button" role="tab">Rotary Endodontics</button>
       </li>
     </ul>
 
@@ -311,80 +318,106 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
       
-      <!-- 1: Intra-oral Camera -->
+      <!-- 1: Laser Unit -->
       <div class="tab-pane fade show active" id="t1" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> Intra-oral Camera wand</h4>
-            <p class="tech-pane-desc">Capture and display crystal-clear digital images from inside the mouth. Shaped like a small wand, these cameras connect wirelessly to display detailed enamel cracks, surface decay, and tooth fractures magnified on screen, making patient education transparent and simple.</p>
+            <h4 class="tech-pane-title"><span>✦</span> Laser Unit</h4>
+            <p class="tech-pane-desc">Our advanced dental laser unit provides painless, highly precise treatments for soft tissues. It significantly reduces bleeding and accelerates the healing process for gum surgeries and contouring, offering a far more comfortable patient experience.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Intra%20oral%20camera.png" class="tech-pane-img" alt="Intraoral camera wand dental diagnosis Kanyakumari">
+            <img src="images/Laser%20unit.jpeg" class="tech-pane-img" alt="Dental Laser Unit Kanyakumari">
           </div>
         </div>
       </div>
 
-      <!-- 2: RVG Digital X-ray -->
+      <!-- 2: Thermoforming Machine -->
       <div class="tab-pane fade" id="t2" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> RVG Digital X-ray System</h4>
-            <p class="tech-pane-desc">RVG (Radio Visio Graphy) is a high-resolution digital X-ray sensor that renders clinical images instantly. By avoiding film processing, it allows our team to identify hidden interproximal decay and bone loss in seconds with up to 90% reduced radiation compared to conventional methods.</p>
+            <h4 class="tech-pane-title"><span>✦</span> Thermoforming Machine</h4>
+            <p class="tech-pane-desc">We utilize a high-precision vacuum thermoforming system to craft custom clear aligners, retainers, night guards, and bleaching trays right in our clinic. This in-house capability ensures a flawless fit and much faster delivery times for our patients.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/RVG%20digital%20X%20ray.png" class="tech-pane-img" alt="RVG digital dental X-ray sensor Kanyakumari">
+            <img src="images/Thermoforming%20machine.jpeg" class="tech-pane-img" alt="Dental Thermoforming Machine Kanyakumari">
           </div>
         </div>
       </div>
 
-      <!-- 3: Rotary Endodontics -->
+      <!-- 3: 3D Printer -->
       <div class="tab-pane fade" id="t3" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> Rotary Endodontics Systems</h4>
-            <p class="tech-pane-desc">Uses modern nickel-titanium flexible files powered by a micro-motor to navigate, shape, and sterilize root canals. This tool ensures that root canal procedures are completed in a fraction of the time, with maximum accuracy and minimal patient fatigue.</p>
+            <h4 class="tech-pane-title"><span>✦</span> 3D Dental Printer</h4>
+            <p class="tech-pane-desc">Equipped with cutting-edge 3D printing technology, we quickly and accurately produce dental models, surgical implant guides, and temporary crowns. This allows for highly customized, efficient, and reliable treatments.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Rotary%20Endodontics.png" class="tech-pane-img" alt="Rotary endodontic root canal motor Kanyakumari">
+            <img src="images/3D%20Printer.jpeg" class="tech-pane-img" alt="3D Dental Printer Kanyakumari">
           </div>
         </div>
       </div>
 
-      <!-- 4: OPG -->
+      <!-- 4: CBCT -->
       <div class="tab-pane fade" id="t4" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> Panoramic OPG X-Ray</h4>
-            <p class="tech-pane-desc">Our Orthopantomogram (OPG) machine scans the full curvature of your jaws in one quick panoramic sweep. It maps out all teeth, sinuses, and mandibular nerves, making it a critical pre-requisite for placing implants safely and analyzing wisdom teeth.</p>
+            <h4 class="tech-pane-title"><span>✦</span> CBCT (Cone Beam Computed Tomography)</h4>
+            <p class="tech-pane-desc">Our in-house CBCT scanner provides highly detailed 3D imaging of teeth, soft tissues, nerve pathways, and bone in a single scan. It is essential for precise dental implant planning, complex extractions, and accurate endodontic diagnoses.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/OPG.png" class="tech-pane-img" alt="OPG panoramic dental x-ray scanner Kanyakumari">
+            <img src="images/CBCT.jpeg" class="tech-pane-img" alt="CBCT Scanner Kanyakumari">
           </div>
         </div>
       </div>
 
-      <!-- 5: Cephalostat -->
+      <!-- 5: iTero Intraoral Scanner -->
       <div class="tab-pane fade" id="t5" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> Cephalometric (Ceph) X-Ray</h4>
-            <p class="tech-pane-desc">A Cephalostat captures a highly standardized side-profile view of the skull structure, jaw margins, and facial profile. It is the gold standard diagnostic tool used to plan orthodontic alignments, cosmetic brace fittings, and Invisalign setups.</p>
+            <h4 class="tech-pane-title"><span>✦</span> iTero Intraoral Scanner</h4>
+            <p class="tech-pane-desc">Ditching uncomfortable dental putty for high-speed digital optics, our iTero scanner captures thousands of data points to create a precise 3D model of your teeth. It is used for Invisalign aligner fabrication and exact custom crowns.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/A%20Cephalostat%20(Ceph%20X-ray).png" class="tech-pane-img" alt="Cephalometric lateral skull orthodontic x-ray Kanyakumari">
+            <img src="images/Intra%20oral%20camera.jpeg" class="tech-pane-img" alt="iTero Intraoral Scanner Kanyakumari">
           </div>
         </div>
       </div>
 
-      <!-- 6: Intraoral Scanning -->
+      <!-- 6: Intra-oral Camera -->
       <div class="tab-pane fade" id="t6" role="tabpanel">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <h4 class="tech-pane-title"><span>✦</span> 3D Intraoral Scanning</h4>
-            <p class="tech-pane-desc">Ditches uncomfortable, gooey dental putty templates for high-speed digital optics. Our intraoral scanner captures thousands of points of details to map out a precise 3D model of your teeth, used for custom crown mockups and Invisalign aligner fabrication.</p>
+            <h4 class="tech-pane-title"><span>✦</span> Intra-oral Camera</h4>
+            <p class="tech-pane-desc">Our intra-oral camera is a small, pen-sized imaging device that captures crystal-clear, real-time photographs from inside the mouth. It displays magnified views of teeth, gums, and decay on a chairside screen — making diagnosis transparent, accurate, and easy for patients to understand.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Intraoral%20scanning.png" class="tech-pane-img" alt="3D digital intraoral scanner Kanyakumari">
+            <img src="images/Intra%20oral%20camera.png" class="tech-pane-img" alt="Intra-oral Camera Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: RVG Digital X-ray -->
+      <div class="tab-pane fade" id="t7" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> RVG Digital X-ray System</h4>
+            <p class="tech-pane-desc">RVG (Radio Visio Graphy) is a high-resolution digital X-ray sensor that renders clinical images instantly on screen, eliminating conventional film processing. It detects hidden interproximal decay and bone loss in seconds with up to 90% less radiation exposure than traditional X-ray methods.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/RVG.png" class="tech-pane-img" alt="RVG Digital X-ray System Kanyakumari">
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: Rotary Endodontics -->
+      <div class="tab-pane fade" id="t8" role="tabpanel">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h4 class="tech-pane-title"><span>✦</span> Rotary Endodontics System</h4>
+            <p class="tech-pane-desc">Our rotary endodontic system uses flexible nickel-titanium files powered by a precision micro-motor to navigate, clean, and shape root canals with minimal effort. This technology completes root canal procedures faster, more accurately, and with significantly greater patient comfort compared to traditional hand files.</p>
+          </div>
+          <div class="col-lg-5">
+            <img src="images/Rotary%20Endodontics.png" class="tech-pane-img" alt="Rotary Endodontics System Kanyakumari">
           </div>
         </div>
       </div>
