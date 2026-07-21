@@ -122,9 +122,30 @@
     object-fit: cover;
     max-height: 320px;
     width: 100%;
+    display: block;
   }
   .tab-pane:hover .tech-pane-img {
     transform: scale(1.02);
+  }
+
+  /* Watermark wrapper for technology images */
+  .tech-img-wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .tech-img-wrap::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 64px;
+    height: 28px;
+    background: url("images/logo.png") center/contain no-repeat;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 5;
+    filter: brightness(0) invert(1);
   }
 
   /* ── Sterilization Timeline Stepper ────────────────────────── */
@@ -326,7 +347,7 @@
             <p class="tech-pane-desc">Our advanced dental laser unit provides painless, highly precise treatments for soft tissues. It significantly reduces bleeding and accelerates the healing process for gum surgeries and contouring, offering a far more comfortable patient experience.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Laser%20unit.jpeg" class="tech-pane-img" alt="Dental Laser Unit Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Laser%20unit.jpeg" class="tech-pane-img" alt="Dental Laser Unit Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -339,7 +360,7 @@
             <p class="tech-pane-desc">We utilize a high-precision vacuum thermoforming system to craft custom clear aligners, retainers, night guards, and bleaching trays right in our clinic. This in-house capability ensures a flawless fit and much faster delivery times for our patients.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Thermoforming%20machine.jpeg" class="tech-pane-img" alt="Dental Thermoforming Machine Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Thermoforming%20machine.jpeg" class="tech-pane-img" alt="Dental Thermoforming Machine Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -352,7 +373,7 @@
             <p class="tech-pane-desc">Equipped with cutting-edge 3D printing technology, we quickly and accurately produce dental models, surgical implant guides, and temporary crowns. This allows for highly customized, efficient, and reliable treatments.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/3D%20Printer.jpeg" class="tech-pane-img" alt="3D Dental Printer Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/3D%20Printer.jpeg" class="tech-pane-img" alt="3D Dental Printer Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -365,7 +386,7 @@
             <p class="tech-pane-desc">Our in-house CBCT scanner provides highly detailed 3D imaging of teeth, soft tissues, nerve pathways, and bone in a single scan. It is essential for precise dental implant planning, complex extractions, and accurate endodontic diagnoses.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/CBCT.jpeg" class="tech-pane-img" alt="CBCT Scanner Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/CBCT.jpeg" class="tech-pane-img" alt="CBCT Scanner Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -378,7 +399,7 @@
             <p class="tech-pane-desc">Ditching uncomfortable dental putty for high-speed digital optics, our iTero scanner captures thousands of data points to create a precise 3D model of your teeth. It is used for Invisalign aligner fabrication and exact custom crowns.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Intra%20oral%20camera.jpeg" class="tech-pane-img" alt="iTero Intraoral Scanner Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Intra%20oral%20camera.jpeg" class="tech-pane-img" alt="iTero Intraoral Scanner Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -391,7 +412,7 @@
             <p class="tech-pane-desc">Our intra-oral camera is a small, pen-sized imaging device that captures crystal-clear, real-time photographs from inside the mouth. It displays magnified views of teeth, gums, and decay on a chairside screen — making diagnosis transparent, accurate, and easy for patients to understand.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Intra%20oral%20camera.png" class="tech-pane-img" alt="Intra-oral Camera Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Intra%20oral%20camera.png" class="tech-pane-img" alt="Intra-oral Camera Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -404,7 +425,7 @@
             <p class="tech-pane-desc">RVG (Radio Visio Graphy) is a high-resolution digital X-ray sensor that renders clinical images instantly on screen, eliminating conventional film processing. It detects hidden interproximal decay and bone loss in seconds with up to 90% less radiation exposure than traditional X-ray methods.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/RVG.png" class="tech-pane-img" alt="RVG Digital X-ray System Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/RVG.png" class="tech-pane-img" alt="RVG Digital X-ray System Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -417,7 +438,7 @@
             <p class="tech-pane-desc">Our rotary endodontic system uses flexible nickel-titanium files powered by a precision micro-motor to navigate, clean, and shape root canals with minimal effort. This technology completes root canal procedures faster, more accurately, and with significantly greater patient comfort compared to traditional hand files.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Rotary%20Endodontics.png" class="tech-pane-img" alt="Rotary Endodontics System Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Rotary%20Endodontics.png" class="tech-pane-img" alt="Rotary Endodontics System Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -496,7 +517,7 @@
             <p class="tech-pane-desc">Every instrument undergoes careful hand-scrubbing with specialized medical detergent solutions. This removes physical debris and build-up from joint surfaces before they advance to deep thermal sterilization.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Instrument%20cleaning.png" class="tech-pane-img" alt="Manual hand scrub dental instrument cleaning">
+            <div class="tech-img-wrap"><img src="images/Instrument%20cleaning.png" class="tech-pane-img" alt="Manual hand scrub dental instrument cleaning"></div>
           </div>
         </div>
       </div>
@@ -509,7 +530,7 @@
             <p class="tech-pane-desc">Instruments and clinical utilities that cannot withstand the high heat of steam autoclaving are fully immersed in a high-level hospital disinfectant chemical bath to dissolve and eliminate pathogens safely.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/cold%20sterilization.png" class="tech-pane-img" alt="Chemical cold sterilization bath dental clinic">
+            <div class="tech-img-wrap"><img src="images/cold%20sterilization.png" class="tech-pane-img" alt="Chemical cold sterilization bath dental clinic"></div>
           </div>
         </div>
       </div>
@@ -522,7 +543,7 @@
             <p class="tech-pane-desc">Instruments are immersed in an ultrasonic bath tank. Rapid microscopic bubbles created by high-frequency sound waves implode across all grooves, folds, and joints, removing tiny debris missed by manual scrubbing.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Ultrasonic.png" class="tech-pane-img" alt="Ultrasonic wave bath cleaning dental clinic Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Ultrasonic.png" class="tech-pane-img" alt="Ultrasonic wave bath cleaning dental clinic Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -535,7 +556,7 @@
             <p class="tech-pane-desc">Cleaned and dried tools are sealed in medical-grade sterilization pouches. Each pouch features a thermal-sensitive chemical color strip that indicates when complete sterilization has been achieved.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Packaging.png" class="tech-pane-img" alt="Sealing surgical instruments in sterilization pouches">
+            <div class="tech-img-wrap"><img src="images/Packaging.png" class="tech-pane-img" alt="Sealing surgical instruments in sterilization pouches"></div>
           </div>
         </div>
       </div>
@@ -548,7 +569,7 @@
             <p class="tech-pane-desc">Pouches are processed in a medical Class-B autoclave under high-pressure saturated steam. This heat reaches a minimum of 134°C, killing all bacteria, spores, and viruses to ensure absolute sterility.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Autoclave.png" class="tech-pane-img" alt="Class B high pressure autoclave sterilizer Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Autoclave.png" class="tech-pane-img" alt="Class B high pressure autoclave sterilizer Kanyakumari"></div>
           </div>
         </div>
       </div>
@@ -561,7 +582,7 @@
             <p class="tech-pane-desc">Packaged sterile pouches are placed in dedicated dust-proof UV storage cabinets. They remain sealed and sterile until they are opened immediately before use directly at the patient's chair.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Storage.png" class="tech-pane-img" alt="Sterile UV storage cabinet dental clinic">
+            <div class="tech-img-wrap"><img src="images/Storage.png" class="tech-pane-img" alt="Sterile UV storage cabinet dental clinic"></div>
           </div>
         </div>
       </div>
@@ -574,7 +595,7 @@
             <p class="tech-pane-desc">All single-use supplies — including injection syringes, clinical gloves, suction tips, patient bibs, and root canal guides — are strictly disposed of after every patient, ensuring zero cross-contamination risk.</p>
           </div>
           <div class="col-lg-5">
-            <img src="images/Disposable%20Materials.png" class="tech-pane-img" alt="Disposable sterile syringes gloves and suction tips Kanyakumari">
+            <div class="tech-img-wrap"><img src="images/Disposable%20Materials.png" class="tech-pane-img" alt="Disposable sterile syringes gloves and suction tips Kanyakumari"></div>
           </div>
         </div>
       </div>

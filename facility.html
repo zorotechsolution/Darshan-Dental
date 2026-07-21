@@ -55,6 +55,21 @@
     pointer-events: none;
   }
 
+  /* Watermark logo on every facility image */
+  .bento-item::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 58px;
+    height: 26px;
+    background: url("images/logo.png") center/contain no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 4;
+    filter: brightness(0) invert(1);
+  }
+
   /* Glassmorphic Magnifier Icon */
   .bento-zoom-icon {
     position: absolute;
@@ -98,6 +113,32 @@
   .bento-item:hover .bento-zoom-icon {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Technology label badge */
+  .bento-label {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.35s ease;
+    pointer-events: none;
+  }
+  .bento-item:hover .bento-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* Bento Spans */
@@ -184,6 +225,23 @@
   }
   .lightbox-overlay.active .lightbox-content img {
     transform: scale(1);
+  }
+
+  /* Watermark in the lightbox */
+  .lightbox-content {
+    position: relative;
+  }
+  .lightbox-watermark {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 72px;
+    height: 32px;
+    object-fit: contain;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 10002;
+    filter: brightness(0) invert(1);
   }
   .lightbox-close {
     position: absolute;
@@ -377,6 +435,53 @@
         </div>
       </div>
 
+      <!-- Technology: CBCT Scanner -->
+      <div class="bento-item">
+        <img src="images/CBCT.jpeg" alt="CBCT 3D Scanner at Darshan Dental Kanyakumari">
+        <div class="bento-label">CBCT 3D Scanner</div>
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Technology: 3D Printer -->
+      <div class="bento-item">
+        <img src="images/3D Printer.jpeg" alt="3D Printer at Darshan Dental Kanyakumari">
+        <div class="bento-label">3D Printer</div>
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Technology: Laser Unit -->
+      <div class="bento-item wide">
+        <img src="images/Laser unit.jpeg" alt="Dental Laser Unit at Darshan Dental Kanyakumari">
+        <div class="bento-label">Dental Laser Unit</div>
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+
+      <!-- Technology: Intra Oral Camera -->
+      <div class="bento-item">
+        <img src="images/Intra oral camera.jpeg" alt="Intra Oral Camera at Darshan Dental Kanyakumari">
+        <div class="bento-label">Intra Oral Camera</div>
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+      <!-- Technology: Thermoforming Machine -->
+      <div class="bento-item wide">
+        <img src="images/Thermoforming machine.jpeg" alt="Thermoforming Machine at Darshan Dental Kanyakumari">
+        <div class="bento-label">Thermoforming Machine</div>
+        <div class="bento-zoom-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>
@@ -387,6 +492,7 @@
   <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
   <div class="lightbox-content">
     <img id="lightbox-img" src="" alt="Zoomed Clinic Facility Image">
+    <img src="images/logo.png" alt="" class="lightbox-watermark">
   </div>
   <button class="lightbox-next" aria-label="Next image">&#10095;</button>
 </div>

@@ -1554,6 +1554,20 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   overflow: hidden;
 }
+/* Watermark logo on every gallery image */
+.ba-images figure::after {
+  content: "";
+  position: absolute;
+  bottom: 28px; /* sit above the figcaption */
+  right: 8px;
+  width: 54px;
+  height: 24px;
+  background: url("../images/logo.png") center/contain no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 3;
+  filter: brightness(0) invert(1); /* render white on dark images */
+}
 .ba-images img {
   width: 100%;
   height: 200px;
