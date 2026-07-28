@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
           data[key] = value;
         });
 
-        const response = await fetch("https://formsubmit.co/ajax/info@darshandental.com", {
+        const response = await fetch("https://formsubmit.co/ajax/darshandentaltania@gmail.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
