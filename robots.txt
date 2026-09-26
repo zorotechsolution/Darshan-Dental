@@ -1,0 +1,6 @@
+# Robots.txt for Darshan Dental & Orthodontic Clinic
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://darshandental.com/sitemap.xml
